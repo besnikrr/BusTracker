@@ -1,0 +1,31 @@
+Resources:
+  R53RecordSet:
+      Type: AWS::Route53::RecordSet
+      Properties: 
+        HostedZoneId: Z085081522OAVFK0CX5YS
+        Name: ${self:custom.alias-url}.
+        Type: A
+        AliasTarget:
+          DNSName: !ImportValue ExportedCloudFrontDNSName # Specify the domain name that CloudFront assigned when you created your distribution !GetAtt logicalNameOfResource.attributeName
+          HostedZoneId: Z2FDTNDATAQYW2
+
+  # R53HostedZone:
+  #   Type: AWS::Route53::HostedZone
+  #   Properties: 
+  #     HostedZoneConfig: 
+  #       HostedZoneConfig:
+  #         Comment: 'Hosted zone for RTBLRR Ptoject'
+  #     HostedZoneTags:  #TODO
+  #         - Key: Name
+  #           Value: ${self:custom.project}-${self:service}-hosted-zone-${sls:stage}
+  #         - Key: Resource
+  #           Value: Hosted Zone
+  #     Name: #studentbustracking.com
+
+# Outputs:
+#   Route53HostedZoneName:
+#     Description: Route 53 Hosted Zone for ${sls:stage} environment
+#     Value: !GetAtt  R53HostedZone.Id
+#     Export:
+#       Name:
+#         'Fn::Sub': '${AWS::StackName}-Route53-HostedZone-Id'

@@ -1,0 +1,35 @@
+Resources:
+
+  AuthRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: ${self:custom.project}-${self:service}-auth-role-${sls:stage}
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Federated: cognito-identity.amazonaws.com
+            Action:
+              - sts:AssumeRoleWithWebIdentity
+      Tags:
+        - Key: Name
+          Value: ${self:custom.project}-${self:service}-auth-role-${sls:stage}
+        - Key: Resource
+          Value: IAM Role
+
+Outputs:
+
+  AuthRoleArn:
+    Description: "Auth Role Arn"
+    Value: !GetAtt AuthRole.Arn
+    Export:
+      Name:
+        "Fn::Sub": "${AWS::StackName}-AuthRoleArn"
+
+  AuthRoleName:
+    Description: "Auth Role Name"
+    Value: !Ref AuthRole
+    Export:
+      Name:
+        "Fn::Sub": "${AWS::StackName}-AuthRoleName"

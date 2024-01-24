@@ -1,0 +1,113 @@
+service: locater
+
+configValidationMode: warn
+
+custom:
+  project: fg-adb
+
+  # cloudfront alias
+  alias-url: dev.studentbustracking.com
+  certificate-arn: arn:aws:acm:us-east-1:773075040983:certificate/0951701b-b54d-4839-aa93-8b810bffdcb4
+  
+  # deployment bucket privacy
+  deploymentBucket:
+    blockPublicAccess: true
+
+
+#-------------------------------------------------------------
+# Values from Network Stack
+
+  network-stack-name:
+    dev: fg-adb-network-dev
+    uat: fg-adb-network-uat
+    prod: fg-adb-network-prod
+
+  LambdaSecurityGroup:
+    Fn::ImportValue: "${self:custom.network-stack-name.${sls:stage}}-LambdaSecurityGroup"
+
+  PrivateSubnet1:
+    Fn::ImportValue: "${self:custom.network-stack-name.${sls:stage}}-PrivateSubnet1"
+
+  PrivateSubnet2:
+    Fn::ImportValue: "${self:custom.network-stack-name.${sls:stage}}-PrivateSubnet2"
+
+  PublicSubnet3:
+    Fn::ImportValue: "${self:custom.network-stack-name.${sls:stage}}-PublicSubnet3"
+
+#-------------------------------------------------------------
+  # secrets manager secret name (don't change this unless you change the IAM Role as well)
+
+  secretName: ${sls:stage}-${self:custom.project}-${self:service}
+
+#-------------------------------------------------------------
+# Global Tags
+  globalTags:
+    costCenter: FGA
+    systemOwner: Sean McCormack
+    budgetOwner: Sean McCormack
+    application: BusLocator
+    company: FS
+    environment:
+      dev: DEV
+      uat: UAT
+      prod: PROD
+    project: ADB
+    mapMigrated: mig44764
+    department: IT
+#-------------------------------------------------------------
+
+
+provider:
+  name: aws
+  region: ${env:AWS_REGION, 'us-east-1'}
+  stage: ${opt:stage, 'dev'}
+  stackName: ${self:custom.project}-${self:service}-${sls:stage}
+  cfnRole: ${param:cfnRoleArn}
+  tags:
+    servicename: ${self:service}
+    Cost Center: ${self:custom.globalTags.costCenter}
+    Systemowner: ${self:custom.globalTags.systemOwner}
+    Budget Owner: ${self:custom.globalTags.budgetOwner}
+    Application: ${self:custom.globalTags.application}
+    Company: ${self:custom.globalTags.company}
+    Environment: ${self:custom.globalTags.environment.${sls:stage}}
+    Project: ${self:custom.globalTags.project}
+    map-migrated: ${self:custom.globalTags.mapMigrated}
+    Department: ${self:custom.globalTags.department}
+  stackTags:
+    servicename: ${self:service}
+    Cost Center: ${self:custom.globalTags.costCenter}
+    Systemowner: ${self:custom.globalTags.systemOwner}
+    Budget Owner: ${self:custom.globalTags.budgetOwner}
+    Application: ${self:custom.globalTags.application}
+    Company: ${self:custom.globalTags.company}
+    Environment: ${self:custom.globalTags.environment.${sls:stage}}
+    Project: ${self:custom.globalTags.project}
+    map-migrated: ${self:custom.globalTags.mapMigrated}
+    Department: ${self:custom.globalTags.department}
+  runtime: nodejs18.x
+  environment:
+    SECRET_NAME: ${self:custom.secretName}
+    STAGE: ${sls:stage}
+
+
+  # deployment bucket encryption at rest
+  deploymentBucket:
+    name: deploy-${self:custom.project}-${self:service}-${param:targetAccountId}-${self:provider.region}
+    serverSideEncryption: AES256
+
+
+plugins:
+  - serverless-deployment-bucket
+  - serverless-plugin-resource-tagging
+
+
+# add additional IAM Roles and CF modules here
+resources:
+  - ${file(./cf/stack-description.yml)}
+  - ${file(./cf/conditions.yml)}
+
+  - ${file(./cf/iam/role-auth.yml)}
+  - ${file(./cf/iam/role-unauth.yml)}
+  - ${file(./cf/cloudfront/s3_cloudfrontdistribution.yml)}
+  - ${file(./cf/route53/route53.yml)}

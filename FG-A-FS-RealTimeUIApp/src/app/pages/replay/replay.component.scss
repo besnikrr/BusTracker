@@ -1,0 +1,19 @@
+.replayContainer {
+  height: calc(100vh - 60px);
+
+  .sidebar {
+    width: 30%;
+  }
+  .mapBox{
+    width: 70%;
+  }
+
+  @media (max-width: 1050px) {
+    .sidebar {
+      width: 35%;
+    }
+    .mapBox{
+      width: 65%;
+    }
+  }
+}

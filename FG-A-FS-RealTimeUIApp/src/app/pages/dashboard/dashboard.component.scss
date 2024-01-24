@@ -1,0 +1,13 @@
+:host {
+  height: 100%;
+
+  .sidebar {
+    width: 30%;
+  }
+
+  @media (max-width: 1050px) {
+    .sidebar {
+      width: 35%;
+    }
+  }
+}

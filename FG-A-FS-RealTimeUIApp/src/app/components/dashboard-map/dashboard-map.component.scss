@@ -1,0 +1,118 @@
+.map-container {
+  height: calc(100vh - 60px);
+  width: 100%;
+  position: relative;
+}
+
+#map {
+  height: 100% !important;
+  .myPanel {
+    top: 50px;
+    left: 50px;
+  }
+}
+
+#viewRouteDetails:hover {
+  color: white;
+}
+
+.routeName {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 34px;
+  color: #212121;
+}
+
+.trimblemaps-popup-content {
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgb(0 0 0 / 25%);
+}
+.iconBase {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
+.titleStatus {
+  border-bottom: 1px solid #c1c1c1;
+}
+#closePopup {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+  font-weight: 700;
+  color: gray;
+  cursor: pointer;
+}
+#viewRouteDetails {
+  font-size: 15px;
+}
+.trimblemaps-popup {
+  width: 45%;
+}
+
+.nextStopContainer {
+  width: 60%;
+}
+
+.map-layer {
+  position: absolute;
+  top: 37px;
+  left: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  border: 1px solid #f5f5f5;
+  box-shadow: 0px 3px 3px rgba(33, 33, 33, 0.2);
+  border-radius: 25px;
+  height: 38px;
+}
+
+@media (max-width: 1000px) {
+  .etaContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+}
+@media (max-width: 1200px) {
+  .routeName {
+    font-size: 22px;
+  }
+  .nextStopContainer {
+    width: 100%;
+  }
+  .trimblemaps-popup {
+    width: 50%;
+  }
+  .eta-status {
+    padding: 5px;
+  }
+  .etaContainer {
+    flex-direction: column;
+    align-items: baseline;
+    gap: 5px;
+  }
+  .eta-status {
+    align-self: center;
+  }
+  .trimblemaps-popup-content {
+    padding: 15px;
+  }
+}
+@media (max-width: 1100px) {
+  .trimblemaps-popup-content {
+    padding: 8px;
+  }
+  .titleStatus {
+    align-items: center;
+  }
+  .titleStatus button {
+    width: 85%;
+  }
+}

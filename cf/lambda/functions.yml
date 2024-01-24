@@ -1,0 +1,95 @@
+DynamoDbAuroraTasks:
+  name: ${self:custom.project}-${self:service}-dynamoDB-aurora-tasks-${sls:stage}
+  description: Stream DynamoDB to PostgreSQL and S3
+  runtime: python3.9
+  timeout: 45
+  memorySize: 1000
+  handler: src/fg-adb-lambda-dynamoDB-aurora-tasks/fg-adb-lambda-dynamoDB-aurora-tasks.lambda_handler
+  layers:    # lookup the object name in the generated Cloudformation JSON file, located under ./.serverless
+    - arn:aws:lambda:us-east-1:336392948345:layer:AWSSDKPandas-Python39:5
+  role: !Sub arn:aws:iam::${AWS::AccountId}:role/${self:custom.project}-${self:service}-${sls:stage}-ExecutionRole
+  package:
+    patterns:
+      - src/fg-adb-lambda-dynamoDB-aurora-tasks/fg-adb-lambda-dynamoDB-aurora-tasks.py
+  vpc:
+    securityGroupIds:
+      - ${self:custom.LambdaSecurityGroup}
+    subnetIds:
+      - ${self:custom.PrivateSubnet1}
+      - ${self:custom.PrivateSubnet2}
+      - ${self:custom.PublicSubnet3}
+  environment:
+    S3BucketName: fg-adb-s3-route-staging-dev
+    RDSWranglerSecret: ${self:custom.AuroraSecretArn.${sls:stage}}     
+  events:
+    - stream: 
+        arn: ${self:custom.tasksStreamArn.${sls:stage}}
+        enabled: ${self:custom.streamTriggerState.${sls:stage}}
+        batchSize: 50
+  tags:
+    Name: ${self:custom.project}-${self:service}-dynamoDB-aurora-tasks-${sls:stage}
+    Resource: Lambda
+
+DynamoDbAuroraRuns:
+  name: ${self:custom.project}-${self:service}-dynamoDB-aurora-runs-${sls:stage}
+  description: Stream DynamoDB to PostgreSQL and S3
+  runtime: python3.9
+  timeout: 45
+  memorySize: 1000
+  handler: src/fg-adb-lambda-dynamoDB-aurora-runs/fg-adb-lambda-dynamoDB-aurora-runs.lambda_handler
+  layers:    # lookup the object name in the generated Cloudformation JSON file, located under ./.serverless
+    - arn:aws:lambda:us-east-1:336392948345:layer:AWSSDKPandas-Python39:5
+  role: !Sub arn:aws:iam::${AWS::AccountId}:role/${self:custom.project}-${self:service}-${sls:stage}-ExecutionRole
+  package:
+    patterns:
+      - src/fg-adb-lambda-dynamoDB-aurora-runs/fg-adb-lambda-dynamoDB-aurora-runs.py
+  vpc:
+    securityGroupIds:
+      - ${self:custom.LambdaSecurityGroup}
+    subnetIds:
+      - ${self:custom.PrivateSubnet1}
+      - ${self:custom.PrivateSubnet2}
+      - ${self:custom.PublicSubnet3}
+  environment:
+    S3BucketName: fg-adb-s3-route-staging-dev
+    RDSWranglerSecret: ${self:custom.AuroraSecretArn.${sls:stage}}         
+  events:
+    - stream: 
+        arn: ${self:custom.runsStreamArn.${sls:stage}}
+        enabled: ${self:custom.streamTriggerState.${sls:stage}}
+        batchSize: 50
+  tags:
+    Name: ${self:custom.project}-${self:service}-dynamoDB-aurora-runs-${sls:stage}
+    Resource: Lambda
+
+DynamoDbAuroraStops:
+  name: ${self:custom.project}-${self:service}-dynamoDB-aurora-stops-${sls:stage}
+  description: Stream DynamoDB to PostgreSQL and S3
+  runtime: python3.9
+  timeout: 45
+  memorySize: 1000
+  handler: src/fg-adb-lambda-dynamoDB-aurora-stops/fg-adb-lambda-dynamoDB-aurora-stops.lambda_handler
+  layers:    # lookup the object name in the generated Cloudformation JSON file, located under ./.serverless
+    - arn:aws:lambda:us-east-1:336392948345:layer:AWSSDKPandas-Python39:5
+  role: !Sub arn:aws:iam::${AWS::AccountId}:role/${self:custom.project}-${self:service}-${sls:stage}-ExecutionRole
+  package:
+    patterns:
+      - src/fg-adb-lambda-dynamoDB-aurora-stops/fg-adb-lambda-dynamoDB-aurora-stops.py
+  vpc:
+    securityGroupIds:
+      - ${self:custom.LambdaSecurityGroup}
+    subnetIds:
+      - ${self:custom.PrivateSubnet1}
+      - ${self:custom.PrivateSubnet2}
+      - ${self:custom.PublicSubnet3}
+  environment:
+    S3BucketName: fg-adb-s3-route-staging-dev
+    RDSWranglerSecret: ${self:custom.AuroraSecretArn.${sls:stage}}     
+  events:
+    - stream: 
+        arn: ${self:custom.stopStreamArn.${sls:stage}}
+        enabled: ${self:custom.streamTriggerState.${sls:stage}}
+        batchSize: 50
+  tags:
+    Name: ${self:custom.project}-${self:service}-dynamoDB-aurora-stops-${sls:stage}
+    Resource: Lambda

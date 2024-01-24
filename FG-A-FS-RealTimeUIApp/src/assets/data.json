@@ -1,0 +1,1987 @@
+{
+  "offset": 0,
+  "limit": 0,
+  "total": 0,
+  "sort": "string",
+  "items": [
+    {
+      "route": {
+        "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "name": "XXX000",
+        "status": "On Time",
+        "scheduledStartTime": "2023-02-17T10:05:49.844Z",
+        "actualStartTime": "2023-02-17T10:05:49.844Z",
+        "scheduledEndTime": "2023-02-17T10:05:49.844Z",
+        "actualEndTime": "2023-02-17T10:05:49.844Z",
+        "completeRuns": 0,
+        "totalRuns": 4,
+        "activeRunId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "direction": "East",
+        "destination": "Whilmer High School",
+        "runStatus": "Complete"
+      },
+      "driver": {
+        "id": "10000000000000",
+        "firstName": "Frederick Oliver",
+        "middleName": "",
+        "lastName": "Johnson",
+        "scheduledStartTime": "2023-02-17T10:05:49.844Z",
+        "actualStartTime": "2023-02-17T10:05:49.844Z",
+        "scheduledEndTime": "2023-02-17T10:05:49.844Z",
+        "actualEndTime": "2023-02-17T10:05:49.844Z",
+        "phoneNumber": "555-555-555"
+      },
+      "vehicle": {
+        "type": "Feature",
+        "bbox": [0],
+        "geometry": {
+          "type": "Feature",
+          "bbox": [0],
+          "coordinates": [-93, 40]
+        },
+        "properties": {
+          "id": "100000000000000000",
+          "type": "Type A",
+          "name": "Bus 12",
+          "heading": 0,
+          "speed": 32,
+          "speedUnit": "MHP",
+          "gpsLastUpdatedTime": "2023-02-17T10:05:49.844Z",
+          "lastPowerOnTime": "2023-02-17T10:05:49.844Z",
+          "lastPowerOffTime": "2023-02-17T10:05:49.844Z"
+        },
+        "id": 1
+      },
+      "nextStop": {
+        "type": "Feature",
+        "bbox": [0],
+        "geometry": {
+          "type": "Feature",
+          "bbox": [0]
+        },
+        "properties": {
+          "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "type": "string",
+          "name": "Central Area Depot",
+          "description": "string",
+          "number": 0,
+          "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+          "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+          "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+          "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+          "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+          "stopTime": "4",
+          "completed": false
+        },
+        "id": 0
+      },
+      "previousStop": [
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "Central Area Depot",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "12 N Main Street",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "10 N Clark Street",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "331 W Huron Drive",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": false
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "Laughling Middle School",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": false
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "Central Area Depot",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": false
+          },
+          "id": 0
+        }
+      ]
+    },
+    {
+      "route": {
+        "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "name": "XXX000",
+        "status": "On Time",
+        "scheduledStartTime": "2023-02-17T10:05:49.844Z",
+        "actualStartTime": "2023-02-17T10:05:49.844Z",
+        "scheduledEndTime": "2023-02-17T10:05:49.844Z",
+        "actualEndTime": "2023-02-17T10:05:49.844Z",
+        "completeRuns": 0,
+        "totalRuns": 4,
+        "activeRunId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "direction": "East",
+        "destination": "Whilmer High School",
+        "runStatus": "En Route"
+      },
+      "driver": {
+        "id": "2",
+        "firstName": "Andy",
+        "middleName": "",
+        "lastName": "Smith",
+        "scheduledStartTime": "2023-02-17T10:05:49.844Z",
+        "actualStartTime": "2023-02-17T10:05:49.844Z",
+        "scheduledEndTime": "2023-02-17T10:05:49.844Z",
+        "actualEndTime": "2023-02-17T10:05:49.844Z",
+        "phoneNumber": "555-555-555"
+      },
+      "vehicle": {
+        "type": "Feature",
+        "bbox": [0],
+        "geometry": {
+          "type": "Feature",
+          "bbox": [0],
+          "coordinates": [-87.626475, 41.893274]
+        },
+        "properties": {
+          "id": "2",
+          "type": "Type A",
+          "name": "Bus 13",
+          "heading": 0,
+          "speed": 32,
+          "speedUnit": "MHP",
+          "gpsLastUpdatedTime": "2023-02-17T10:05:49.844Z",
+          "lastPowerOnTime": "2023-02-17T10:05:49.844Z",
+          "lastPowerOffTime": "2023-02-17T10:05:49.844Z"
+        },
+        "id": 1
+      },
+      "nextStop": {
+        "type": "Feature",
+        "bbox": [0],
+        "geometry": {
+          "type": "Feature",
+          "bbox": [0]
+        },
+        "properties": {
+          "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "type": "string",
+          "name": "12 N Main Street",
+          "description": "string",
+          "number": 0,
+          "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+          "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+          "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+          "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+          "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+          "stopTime": "4",
+          "completed": false
+        },
+        "id": 0
+      },
+      "previousStop": [
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "Central Area Depot",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "12 N Main Street",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "10 N Clark Street",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "331 W Huron Drive",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "Laughling Middle School",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "Central Area Depot",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        }
+      ]
+    },
+    {
+      "route": {
+        "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "name": "XXX000",
+        "status": "On Time",
+        "scheduledStartTime": "2023-02-17T10:05:49.844Z",
+        "actualStartTime": "2023-02-17T10:05:49.844Z",
+        "scheduledEndTime": "2023-02-17T10:05:49.844Z",
+        "actualEndTime": "2023-02-17T10:05:49.844Z",
+        "completeRuns": 0,
+        "totalRuns": 4,
+        "activeRunId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "direction": "East",
+        "destination": "Whilmer High School",
+        "runStatus": "Planned"
+      },
+      "driver": {
+        "id": "2",
+        "firstName": "Andy",
+        "middleName": "",
+        "lastName": "Smith",
+        "scheduledStartTime": "2023-02-17T10:05:49.844Z",
+        "actualStartTime": "2023-02-17T10:05:49.844Z",
+        "scheduledEndTime": "2023-02-17T10:05:49.844Z",
+        "actualEndTime": "2023-02-17T10:05:49.844Z",
+        "phoneNumber": "555-555-555"
+      },
+      "vehicle": {
+        "type": "Feature",
+        "bbox": [0],
+        "geometry": {
+          "type": "Feature",
+          "bbox": [0],
+          "coordinates": [-95.7, 39]
+        },
+        "properties": {
+          "id": "3",
+          "type": "Type A",
+          "name": "Bus 10",
+          "heading": 0,
+          "speed": 32,
+          "speedUnit": "MHP",
+          "gpsLastUpdatedTime": "2023-02-17T10:05:49.844Z",
+          "lastPowerOnTime": "2023-02-17T10:05:49.844Z",
+          "lastPowerOffTime": "2023-02-17T10:05:49.844Z"
+        },
+        "id": 1
+      },
+      "nextStop": {
+        "type": "Feature",
+        "bbox": [0],
+        "geometry": {
+          "type": "Feature",
+          "bbox": [0]
+        },
+        "properties": {
+          "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "type": "string",
+          "name": "12 N Main Street",
+          "description": "string",
+          "number": 0,
+          "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+          "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+          "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+          "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+          "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+          "stopTime": "4",
+          "completed": false
+        },
+        "id": 0
+      },
+      "previousStop": [
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "Central Area Depot",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "12 N Main Street",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "10 N Clark Street",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "331 W Huron Drive",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "Laughling Middle School",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "Central Area Depot",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        }
+      ]
+    },
+    {
+      "route": {
+        "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "name": "XXX000",
+        "status": "On Time",
+        "scheduledStartTime": "2023-02-17T10:05:49.844Z",
+        "actualStartTime": "2023-02-17T10:05:49.844Z",
+        "scheduledEndTime": "2023-02-17T10:05:49.844Z",
+        "actualEndTime": "2023-02-17T10:05:49.844Z",
+        "completeRuns": 0,
+        "totalRuns": 4,
+        "activeRunId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "direction": "East",
+        "destination": "Whilmer High School",
+        "runStatus": "En Route"
+      },
+      "driver": {
+        "id": "3",
+        "firstName": "Anna",
+        "middleName": "",
+        "lastName": "Smith",
+        "scheduledStartTime": "2023-02-17T10:05:49.844Z",
+        "actualStartTime": "2023-02-17T10:05:49.844Z",
+        "scheduledEndTime": "2023-02-17T10:05:49.844Z",
+        "actualEndTime": "2023-02-17T10:05:49.844Z",
+        "phoneNumber": "555-555-555"
+      },
+      "vehicle": {
+        "type": "Feature",
+        "bbox": [0],
+        "geometry": {
+          "type": "Feature",
+          "bbox": [0],
+          "coordinates": [-101, 38]
+        },
+        "properties": {
+          "id": "4",
+          "type": "Type A",
+          "name": "Bus 12",
+          "heading": 0,
+          "speed": 32,
+          "speedUnit": "MHP",
+          "gpsLastUpdatedTime": "2023-02-17T10:05:49.844Z",
+          "lastPowerOnTime": "2023-02-17T10:05:49.844Z",
+          "lastPowerOffTime": "2023-02-17T10:05:49.844Z"
+        },
+        "id": 1
+      },
+      "nextStop": {
+        "type": "Feature",
+        "bbox": [0],
+        "geometry": {
+          "type": "Feature",
+          "bbox": [0]
+        },
+        "properties": {
+          "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "type": "string",
+          "name": "12 N Main Street",
+          "description": "string",
+          "number": 0,
+          "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+          "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+          "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+          "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+          "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+          "stopTime": "4",
+          "completed": false
+        },
+        "id": 0
+      },
+      "previousStop": [
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "Central Area Depot",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "12 N Main Street",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "10 N Clark Street",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "331 W Huron Drive",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "Laughling Middle School",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "Central Area Depot",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        }
+      ]
+    },
+    {
+      "route": {
+        "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "name": "XXX000",
+        "status": "On Time",
+        "scheduledStartTime": "2023-02-17T10:05:49.844Z",
+        "actualStartTime": "2023-02-17T10:05:49.844Z",
+        "scheduledEndTime": "2023-02-17T10:05:49.844Z",
+        "actualEndTime": "2023-02-17T10:05:49.844Z",
+        "completeRuns": 0,
+        "totalRuns": 4,
+        "activeRunId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "direction": "East",
+        "destination": "Whilmer High School",
+        "runStatus": "En Route"
+      },
+      "driver": {
+        "id": "4",
+        "firstName": "Jane",
+        "middleName": "",
+        "lastName": "Smith",
+        "scheduledStartTime": "2023-02-17T10:05:49.844Z",
+        "actualStartTime": "2023-02-17T10:05:49.844Z",
+        "scheduledEndTime": "2023-02-17T10:05:49.844Z",
+        "actualEndTime": "2023-02-17T10:05:49.844Z",
+        "phoneNumber": "555-555-555"
+      },
+      "vehicle": {
+        "type": "Feature",
+        "bbox": [0],
+        "geometry": {
+          "type": "Feature",
+          "bbox": [0],
+          "coordinates": [-101, 38]
+        },
+        "properties": {
+          "id": "5",
+          "type": "Type A",
+          "name": "Bus 12",
+          "heading": 0,
+          "speed": 32,
+          "speedUnit": "MHP",
+          "gpsLastUpdatedTime": "2023-02-17T10:05:49.844Z",
+          "lastPowerOnTime": "2023-02-17T10:05:49.844Z",
+          "lastPowerOffTime": "2023-02-17T10:05:49.844Z"
+        },
+        "id": 1
+      },
+      "nextStop": {
+        "type": "Feature",
+        "bbox": [0],
+        "geometry": {
+          "type": "Feature",
+          "bbox": [0]
+        },
+        "properties": {
+          "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "type": "string",
+          "name": "12 N Main Street",
+          "description": "string",
+          "number": 0,
+          "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+          "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+          "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+          "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+          "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+          "stopTime": "4",
+          "completed": false
+        },
+        "id": 0
+      },
+      "previousStop": [
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "Central Area Depot",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "12 N Main Street",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "10 N Clark Street",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "331 W Huron Drive",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "Laughling Middle School",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "Central Area Depot",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        }
+      ]
+    },
+    {
+      "route": {
+        "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "name": "XXX000",
+        "status": "On Time",
+        "scheduledStartTime": "2023-02-17T10:05:49.844Z",
+        "actualStartTime": "2023-02-17T10:05:49.844Z",
+        "scheduledEndTime": "2023-02-17T10:05:49.844Z",
+        "actualEndTime": "2023-02-17T10:05:49.844Z",
+        "completeRuns": 0,
+        "totalRuns": 4,
+        "activeRunId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "direction": "East",
+        "destination": "Whilmer High School",
+        "runStatus": "En Route"
+      },
+      "driver": {
+        "id": "5",
+        "firstName": "Janet",
+        "middleName": "",
+        "lastName": "Smith",
+        "scheduledStartTime": "2023-02-17T10:05:49.844Z",
+        "actualStartTime": "2023-02-17T10:05:49.844Z",
+        "scheduledEndTime": "2023-02-17T10:05:49.844Z",
+        "actualEndTime": "2023-02-17T10:05:49.844Z",
+        "phoneNumber": "555-555-555"
+      },
+      "vehicle": {
+        "type": "Feature",
+        "bbox": [0],
+        "geometry": {
+          "type": "Feature",
+          "bbox": [0],
+          "coordinates": [-94, 35]
+        },
+        "properties": {
+          "id": "6",
+          "type": "Type A",
+          "name": "Bus 12",
+          "heading": 0,
+          "speed": 32,
+          "speedUnit": "MHP",
+          "gpsLastUpdatedTime": "2023-02-17T10:05:49.844Z",
+          "lastPowerOnTime": "2023-02-17T10:05:49.844Z",
+          "lastPowerOffTime": "2023-02-17T10:05:49.844Z"
+        },
+        "id": 1
+      },
+      "nextStop": {
+        "type": "Feature",
+        "bbox": [0],
+        "geometry": {
+          "type": "Feature",
+          "bbox": [0]
+        },
+        "properties": {
+          "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "type": "string",
+          "name": "12 N Main Street",
+          "description": "string",
+          "number": 0,
+          "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+          "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+          "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+          "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+          "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+          "stopTime": "4",
+          "completed": false
+        },
+        "id": 0
+      },
+      "previousStop": [
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "Central Area Depot",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "12 N Main Street",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "10 N Clark Street",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "331 W Huron Drive",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "Laughling Middle School",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "Central Area Depot",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        }
+      ]
+    },
+    {
+      "route": {
+        "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "name": "XXX000",
+        "status": "On Time",
+        "scheduledStartTime": "2023-02-17T10:05:49.844Z",
+        "actualStartTime": "2023-02-17T10:05:49.844Z",
+        "scheduledEndTime": "2023-02-17T10:05:49.844Z",
+        "actualEndTime": "2023-02-17T10:05:49.844Z",
+        "completeRuns": 0,
+        "totalRuns": 4,
+        "activeRunId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "direction": "East",
+        "destination": "Whilmer High School"
+      },
+      "driver": {
+        "id": "6",
+        "firstName": "Janet",
+        "middleName": "",
+        "lastName": "Smitz",
+        "scheduledStartTime": "2023-02-17T10:05:49.844Z",
+        "actualStartTime": "2023-02-17T10:05:49.844Z",
+        "scheduledEndTime": "2023-02-17T10:05:49.844Z",
+        "actualEndTime": "2023-02-17T10:05:49.844Z",
+        "phoneNumber": "555-555-555"
+      },
+      "vehicle": {
+        "type": "Feature",
+        "bbox": [0],
+        "geometry": {
+          "type": "Feature",
+          "bbox": [0],
+          "coordinates": [-87.626475, 41.893274]
+        },
+        "properties": {
+          "id": "7",
+          "type": "Type A",
+          "name": "Bus 12",
+          "heading": 0,
+          "speed": 32,
+          "speedUnit": "MHP",
+          "gpsLastUpdatedTime": "2023-02-17T10:05:49.844Z",
+          "lastPowerOnTime": "2023-02-17T10:05:49.844Z",
+          "lastPowerOffTime": "2023-02-17T10:05:49.844Z"
+        },
+        "id": 1
+      },
+      "nextStop": {
+        "type": "Feature",
+        "bbox": [0],
+        "geometry": {
+          "type": "Feature",
+          "bbox": [0]
+        },
+        "properties": {
+          "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "type": "string",
+          "name": "12 N Main Street",
+          "description": "string",
+          "number": 0,
+          "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+          "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+          "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+          "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+          "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+          "stopTime": "4",
+          "completed": false
+        },
+        "id": 0
+      },
+      "previousStop": [
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "Central Area Depot",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "12 N Main Street",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "10 N Clark Street",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "331 W Huron Drive",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "Laughling Middle School",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "Central Area Depot",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        }
+      ]
+    },
+    {
+      "route": {
+        "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "name": "XXX000",
+        "status": "On Time",
+        "scheduledStartTime": "2023-02-17T10:05:49.844Z",
+        "actualStartTime": "2023-02-17T10:05:49.844Z",
+        "scheduledEndTime": "2023-02-17T10:05:49.844Z",
+        "actualEndTime": "2023-02-17T10:05:49.844Z",
+        "completeRuns": 0,
+        "totalRuns": 4,
+        "activeRunId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "direction": "East",
+        "destination": "Whilmer High School",
+        "runStatus": "En Route"
+      },
+      "driver": {
+        "id": "7",
+        "firstName": "Jane",
+        "middleName": "",
+        "lastName": "Doe",
+        "scheduledStartTime": "2023-02-17T10:05:49.844Z",
+        "actualStartTime": "2023-02-17T10:05:49.844Z",
+        "scheduledEndTime": "2023-02-17T10:05:49.844Z",
+        "actualEndTime": "2023-02-17T10:05:49.844Z",
+        "phoneNumber": "555-555-555"
+      },
+      "vehicle": {
+        "type": "Feature",
+        "bbox": [0],
+        "geometry": {
+          "type": "Feature",
+          "bbox": [0],
+          "coordinates": [-94, 35]
+        },
+        "properties": {
+          "id": "8",
+          "type": "Type A",
+          "name": "Bus 12",
+          "heading": 0,
+          "speed": 32,
+          "speedUnit": "MHP",
+          "gpsLastUpdatedTime": "2023-02-17T10:05:49.844Z",
+          "lastPowerOnTime": "2023-02-17T10:05:49.844Z",
+          "lastPowerOffTime": "2023-02-17T10:05:49.844Z"
+        },
+        "id": 1
+      },
+      "nextStop": {
+        "type": "Feature",
+        "bbox": [0],
+        "geometry": {
+          "type": "Feature",
+          "bbox": [0]
+        },
+        "properties": {
+          "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "type": "string",
+          "name": "12 N Main Street",
+          "description": "string",
+          "number": 0,
+          "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+          "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+          "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+          "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+          "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+          "stopTime": "4",
+          "completed": false
+        },
+        "id": 0
+      },
+      "previousStop": [
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "Central Area Depot",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "12 N Main Street",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "10 N Clark Street",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "331 W Huron Drive",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "Laughling Middle School",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "Central Area Depot",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        }
+      ]
+    },
+    {
+      "route": {
+        "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "name": "XXX000",
+        "status": "On Time",
+        "scheduledStartTime": "2023-02-17T10:05:49.844Z",
+        "actualStartTime": "2023-02-17T10:05:49.844Z",
+        "scheduledEndTime": "2023-02-17T10:05:49.844Z",
+        "actualEndTime": "2023-02-17T10:05:49.844Z",
+        "completeRuns": 0,
+        "totalRuns": 4,
+        "activeRunId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "direction": "East",
+        "destination": "Whilmer High School",
+        "runStatus": "En Route"
+      },
+      "driver": {
+        "id": "9",
+        "firstName": "Sam",
+        "middleName": "",
+        "lastName": "Smith",
+        "scheduledStartTime": "2023-02-17T10:05:49.844Z",
+        "actualStartTime": "2023-02-17T10:05:49.844Z",
+        "scheduledEndTime": "2023-02-17T10:05:49.844Z",
+        "actualEndTime": "2023-02-17T10:05:49.844Z",
+        "phoneNumber": "555-555-555"
+      },
+      "vehicle": {
+        "type": "Feature",
+        "bbox": [0],
+        "geometry": {
+          "type": "Feature",
+          "bbox": [0],
+          "coordinates": [-94, 35]
+        },
+        "properties": {
+          "id": "8",
+          "type": "Type A",
+          "name": "Bus 12",
+          "heading": 0,
+          "speed": 32,
+          "speedUnit": "MHP",
+          "gpsLastUpdatedTime": "2023-02-17T10:05:49.844Z",
+          "lastPowerOnTime": "2023-02-17T10:05:49.844Z",
+          "lastPowerOffTime": "2023-02-17T10:05:49.844Z"
+        },
+        "id": 1
+      },
+      "nextStop": {
+        "type": "Feature",
+        "bbox": [0],
+        "geometry": {
+          "type": "Feature",
+          "bbox": [0]
+        },
+        "properties": {
+          "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "type": "string",
+          "name": "12 N Main Street",
+          "description": "string",
+          "number": 0,
+          "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+          "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+          "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+          "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+          "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+          "stopTime": "4",
+          "completed": false
+        },
+        "id": 0
+      },
+      "previousStop": [
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "Central Area Depot",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "12 N Main Street",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "10 N Clark Street",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "331 W Huron Drive",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "Laughling Middle School",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        },
+        {
+          "type": "Feature",
+          "bbox": [0],
+          "geometry": {
+            "type": "Feature",
+            "bbox": [0]
+          },
+          "properties": {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "templateId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "string",
+            "name": "Central Area Depot",
+            "description": "string",
+            "number": 0,
+            "scheduledArrivalTime": "2023-02-17T10:05:49.844Z",
+            "estimatedArrivalTime": "2023-02-17T10:05:49.844Z",
+            "actualArrivalTime": "2023-02-17T10:05:49.844Z",
+            "scheduledDepartureTime": "2023-02-17T10:05:49.844Z",
+            "actualDepartureTime": "2023-02-17T10:05:49.844Z",
+            "stopTime": "4",
+            "completed": true
+          },
+          "id": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+<div class="map-container">
+  <div id="map" #map></div>
+  <div #mapLayer class="map-layer text-dark py-2.5 pr-2.5 pl-5 pr-5">
+    <span>
+      <svg
+        *ngIf="selectedOption === 'live' && !dataError"
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <mask
+          id="mask0_738_1532"
+          style="mask-type: alpha"
+          maskUnits="userSpaceOnUse"
+          x="0"
+          y="0"
+          width="20"
+          height="20">
+          <rect width="20" height="20" fill="#D9D9D9" />
+        </mask>
+        <g mask="url(#mask0_738_1532)">
+          <path
+            d="M10 17.146C9.88867 17.146 9.781 17.125 9.677 17.083C9.573 17.0417 9.47234 16.9723 9.375 16.875L0.625004 8.14601C0.444337 7.97934 0.354004 7.77101 0.354004 7.52101C0.354004 7.27101 0.444337 7.06967 0.625004 6.91701C1.91634 5.75034 3.36767 4.86134 4.979 4.25001C6.59034 3.63867 8.264 3.33301 10 3.33301C11.736 3.33301 13.4097 3.63867 15.021 4.25001C16.6323 4.86134 18.0837 5.75034 19.375 6.91701C19.5557 7.06967 19.646 7.27101 19.646 7.52101C19.646 7.77101 19.5557 7.97934 19.375 8.14601L10.625 16.875C10.5277 16.9723 10.427 17.0417 10.323 17.083C10.219 17.125 10.1113 17.146 10 17.146Z"
+            fill="#7AB800" />
+        </g>
+      </svg>
+      <svg
+        *ngIf="selectedOption === 'history'"
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <mask
+          id="mask0_1734_3720"
+          style="mask-type: alpha"
+          maskUnits="userSpaceOnUse"
+          x="0"
+          y="0"
+          width="20"
+          height="20">
+          <rect width="20" height="20" fill="#D9D9D9" />
+        </mask>
+        <g mask="url(#mask0_1734_3720)">
+          <path
+            d="M10.812 9.646L12.833 11.688C12.9997 11.8547 13.083 12.056 13.083 12.292C13.083 12.528 12.9997 12.7293 12.833 12.896C12.6663 13.0627 12.4617 13.146 12.219 13.146C11.9757 13.146 11.7707 13.0627 11.604 12.896L9.312 10.583C9.22933 10.4997 9.167 10.406 9.125 10.302C9.083 10.198 9.062 10.0903 9.062 9.979V6.708C9.062 6.472 9.149 6.26733 9.323 6.094C9.49633 5.92 9.70133 5.833 9.938 5.833C10.174 5.833 10.3787 5.92 10.552 6.094C10.7253 6.26733 10.812 6.472 10.812 6.708V9.646ZM9.979 17.5C8.93767 17.5 7.96533 17.302 7.062 16.906C6.15933 16.51 5.368 15.972 4.688 15.292C4.00733 14.6113 3.47233 13.816 3.083 12.906C2.69433 11.9967 2.5 11.021 2.5 9.979C2.5 8.95167 2.698 7.983 3.094 7.073C3.49 6.163 4.02467 5.368 4.698 4.688C5.37133 4.00733 6.163 3.47233 7.073 3.083C7.983 2.69433 8.95167 2.5 9.979 2.5C11.1043 2.5 12.174 2.72567 13.188 3.177C14.2013 3.62833 15.0553 4.29867 15.75 5.188V4.271C15.75 4.035 15.8367 3.83 16.01 3.656C16.184 3.48267 16.389 3.396 16.625 3.396C16.861 3.396 17.066 3.48267 17.24 3.656C17.4133 3.83 17.5 4.035 17.5 4.271V7.646C17.5 7.882 17.4133 8.08667 17.24 8.26C17.066 8.434 16.861 8.521 16.625 8.521H13.438C13.2013 8.521 12.9963 8.434 12.823 8.26C12.649 8.08667 12.562 7.882 12.562 7.646C12.562 7.41 12.649 7.205 12.823 7.031C12.9963 6.85767 13.2013 6.771 13.438 6.771H14.75C14.222 5.979 13.5347 5.361 12.688 4.917C11.8407 4.47233 10.9377 4.25 9.979 4.25C8.38167 4.25 7.02767 4.809 5.917 5.927C4.80567 7.045 4.25 8.40267 4.25 10C4.25 11.5973 4.80567 12.955 5.917 14.073C7.02767 15.191 8.38167 15.75 9.979 15.75C11.243 15.75 12.3853 15.3923 13.406 14.677C14.4273 13.9617 15.1253 13.0067 15.5 11.812C15.5833 11.5627 15.7187 11.3477 15.906 11.167C16.094 10.9863 16.3127 10.9237 16.562 10.979C16.8127 11.0343 17.0003 11.1733 17.125 11.396C17.2497 11.618 17.2773 11.854 17.208 12.104C16.764 13.7153 15.8683 15.0173 14.521 16.01C13.1737 17.0033 11.6597 17.5 9.979 17.5Z"
+            fill="#414141" />
+        </g>
+      </svg>
+    </span>
+    <p class="text-dark font-medium" *ngIf="!dataError">
+      {{
+        selectedOption === "live"
+          ? "Live"
+          : selectedDate === null
+          ? "History"
+          : (selectedDate | formatDate)
+      }}
+    </p>
+    <mat-icon class="material-symbols-sharp text-primary-red" *ngIf="dataError">
+      signal_wifi_bad
+    </mat-icon>
+    <p *ngIf="dataError" class="text-primary-red">Last connected at {{ lastPing }}</p>
+    <!-- <mat-icon class="text-dark">arrow_drop_down</mat-icon> -->
+  </div>
+  <div *ngIf="modalOpened" class="modal-layer p-5 flex flex-col text-dark">
+    <mat-radio-group class="flex justify-around radio-group" [(ngModel)]="selectedOption">
+      <mat-radio-button (click)="onLiveViewReturn()" value="live">Live</mat-radio-button>
+      <mat-radio-button value="history">History</mat-radio-button>
+    </mat-radio-group>
+    <div *ngIf="selectedOption === 'history'">
+      <div class="date w-full p-2.5">
+        <p class="text-base font-normal text-dark">
+          {{ selectedDate === null ? "No date selected" : (selectedDate | formatDate) }}
+        </p>
+      </div>
+      <mat-calendar [(selected)]="selectedDate" [maxDate]="maxDate" class="mb-7"></mat-calendar>
+    </div>
+    <div class="text-right">
+      <button
+        type="button"
+        (click)="handleOnApplyClick()"
+        [disabled]="selectedDate === null && selectedOption === 'history'"
+        class="bg-secondary-blue text-white text-base px-8 py-3 apply-btn">
+        Apply
+      </button>
+    </div>
+  </div>
+  <div class="slider-layer">
+    <button
+      *ngIf="showHistoryLayers"
+      (click)="onLiveViewReturn()"
+      type="button"
+      class="bg-secondary-blue text-white text-base px-8 py-3 apply-btn">
+      Return to Live View
+    </button>
+    <app-time-slider *ngIf="showHistoryLayers"></app-time-slider>
+  </div>
+
+  <div>
+    <span
+      #eventsLayer
+      [ngStyle]="getEventsLayerStyle()"
+      [class.events-layer]="selectedEventOptions.length === 0"
+      [class.after-events-layer]="selectedEventOptions.length > 0"
+      (click)="handleDropdownClick()">
+      <mat-icon class="icon-dark material-icons-outlined">not_listed_location</mat-icon>
+      <label
+        class="text-base events-text text-dark"
+        [class.label]="selectedEventOptions.length === 0"
+        [class.after-label]="selectedEventOptions.length > 0">
+        {{ eventsOption }}
+      </label>
+      <mat-icon *ngIf="eventsOption === 'Events'" class="icon-dark">arrow_drop_down</mat-icon>
+      <span
+        class="icon-dark close-icon"
+        (click)="handleClearClick()"
+        *ngIf="eventsOption !== 'Events'"
+        ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20px" height="20px">
+          <path
+            d="M 4.9902344 3.9902344 A 1.0001 1.0001 0 0 0 4.2929688 5.7070312 L 10.585938 12 L 4.2929688 18.292969 A 1.0001 1.0001 0 1 0 5.7070312 19.707031 L 12 13.414062 L 18.292969 19.707031 A 1.0001 1.0001 0 1 0 19.707031 18.292969 L 13.414062 12 L 19.707031 5.7070312 A 1.0001 1.0001 0 0 0 18.980469 3.9902344 A 1.0001 1.0001 0 0 0 18.292969 4.2929688 L 12 10.585938 L 5.7070312 4.2929688 A 1.0001 1.0001 0 0 0 4.9902344 3.9902344 z" /></svg
+      ></span>
+    </span>
+    <div
+      *ngIf="isEventModalOpen"
+      [class.modal-layer-history]="selectedDate !== null"
+      class="event-modal p-5 flex flex-col text-dark">
+      <div class="flex flex-row main" *ngFor="let option of eventValues | keyvalue">
+        <input
+          class="accent-secondary-blue checkbox mr-1"
+          type="checkbox"
+          [checked]="selectedEventOptions.includes(option.value)"
+          (change)="handleCheckboxChange(option.value, option.key, $event)"
+          [ngModel]="selectedEventOptions.includes(option.value)"
+          [value]="option.value"
+          id="{{ option.value }}" />
+        <label class="event-options text-dark ml-1" for="{{ option.value }}">{{
+          option.value
+        }}</label>
+      </div>
+      <hr class="line22" />
+      <div class="event-dropdown-btn">
+        <button mat-button type="button" (click)="handleClearClick()" class="events-clear-btn">
+          Clear
+        </button>
+        <button mat-button class="events-apply-button" (click)="handleApplyClick()">Apply</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="custom-slider">
+  <div class="timeDisplay flex flex-row justify-between items-center">
+    <mat-icon
+      (click)="decrementByMin()"
+      [ngClass]="disabledDec ? 'mr-4 cursor-pointer btnDisabled' : 'mr-4 cursor-pointer'"
+      >keyboard_arrow_left</mat-icon
+    >
+    <div class="font-bold text-lg">{{ formatLabel(timeValue) }}</div>
+    <mat-icon
+      [ngClass]="disabledInc ? 'ml-4 cursor-pointer btnDisabled' : 'ml-4 cursor-pointer'"
+      (click)="incrementByMin()"
+      >keyboard_arrow_right</mat-icon
+    >
+  </div>
+  <ngx-slider [(value)]="timeValue" [options]="timeRangeOptions"></ngx-slider>
+</div>

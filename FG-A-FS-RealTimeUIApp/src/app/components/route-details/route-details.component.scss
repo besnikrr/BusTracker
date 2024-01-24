@@ -1,0 +1,93 @@
+.routeName {
+  font-size: 32px;
+  font-family: "Barlow Condensed", sans-serif !important;
+}
+.backBtn {
+  position: relative;
+  right: 10px;
+  height: 40px;
+  width: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+}
+.arrowBack {
+  color: #414141;
+}
+.backBtn:hover {
+  background-color: #e6f2fa;
+}
+
+.details {
+  height: 200px;
+}
+.line {
+  border: 1px solid #c1c1c1;
+  transform: rotate(0.12deg);
+}
+#sortSelect {
+  font-size: 14px;
+  width: 91%;
+}
+.busTypes {
+  padding: 9px 15px 9px 15px;
+  border: 1px solid #f5f5f5;
+  box-shadow: 0px 3px 3px rgba(65, 65, 65, 0.2);
+  border-radius: 25px;
+  width: 30%;
+  font-size: 14px;
+  color: #212121;
+}
+.resultsContainer {
+  height: 255px;
+}
+.routeDetailsContainer{
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  .routeDetailsRow{
+    width: fit-content;
+  }
+}
+.spinner {
+  box-sizing: border-box;
+  color: black;
+  display: block;
+  position: absolute;
+  width: 51px;
+  height: 51px;
+  margin: 6px;
+  border: 6px solid black;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #007AC9 transparent transparent transparent;
+}
+.spinner-container {
+  display: inline-block;
+}
+.main-spinner {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-right: 100px;
+}
+@media (max-width: 1000px) {
+  .routeDetailsContainer{
+    flex-direction: column;
+  }
+}
+.driverName{
+  white-space: pre; 
+}
+.vehicleId{
+  word-wrap: anywhere; 
+  max-width: 100px; 
+}
+.lastConnected{
+  white-space: pre-wrap;
+}
+@media (max-width: 1200px) {
+  .routeName {
+    font-size: 22px;
+  }
+}

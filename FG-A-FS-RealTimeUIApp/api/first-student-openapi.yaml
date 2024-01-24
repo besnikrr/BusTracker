@@ -1,0 +1,1168 @@
+openapi: 3.0.0
+info:
+  title: First Student API
+  version: "1.0"
+servers:
+  - url: https://api.example.io
+paths:
+  /locations/businessUnits/all:
+    get:
+      description: get all business units
+      tags: []
+      parameters: []
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BusinessUnitCollection"
+  /auth/user/profile:
+    get:
+      description: get the authenticated user's profile
+      tags: []
+      parameters: []
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+  /persons/driver/search:
+    get:
+      description: person (personType = driver) search
+      tags: []
+      parameters:
+        - $ref: "#/components/parameters/searchDate"
+        - $ref: "#/components/parameters/query"
+        - $ref: "#/components/parameters/offset"
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/sort"
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DriverSearchPageable"
+  /places/search:
+    get:
+      description: place search
+      tags: []
+      parameters:
+        - $ref: "#/components/parameters/query"
+        - $ref: "#/components/parameters/offset"
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/sort"
+        - name: placeTypes
+          description: filter for place types
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PlaceSearchPageable"
+  /tasks/search:
+    get:
+      description: task search
+      tags: []
+      parameters:
+        - $ref: "#/components/parameters/searchDate"
+        - $ref: "#/components/parameters/query"
+        - $ref: "#/components/parameters/offset"
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/sort"
+        - name: taskTypes
+          description: filter for task types
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TaskSearchPageable"
+  /vehicles/search:
+    get:
+      description: vehicle search
+      tags: []
+      parameters:
+        - $ref: "#/components/parameters/searchDate"
+        - $ref: "#/components/parameters/query"
+        - $ref: "#/components/parameters/offset"
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/sort"
+        - name: vehicleTypes
+          description: filter for vehicle types
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VehicleSearchPageable"
+
+  /vehicles/gps/boundingbox:
+    get:
+      description: get GPS coordinates for vehicles
+      tags: []
+      parameters:
+        - name: lowerLongitude
+          description: The lower longitude value
+          in: query
+          required: false
+          schema:
+            type: number
+            format: double
+        - name: lowerLatitude
+          description: The lower latitude value
+          in: query
+          required: false
+          schema:
+            type: number
+            format: double
+        - name: upperLongitude
+          description: The upper longitude value
+          in: query
+          required: false
+          schema:
+            type: number
+            format: double
+        - name: upperLatitude
+          description: The upper latitude value
+          in: query
+          required: false
+          schema:
+            type: number
+            format: double
+        - name: vehicleTypes
+          description: filter for specific vehicle types
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: array
+            items:
+              type: string
+        - name: vehicleIds
+          description: filter for specific vehicles
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: array
+            items:
+              type: string
+        - $ref: "#/components/parameters/gpsEventTime"
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/VehicleEventFeature"
+
+  /vehicles/{vehicleId}/gps/{eventId}/task:
+    get:
+      description: get the task for a specific vehicle and gps event
+      tags: []
+      parameters:
+        - name: vehicleId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: eventId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VehicleEventRouteTaskNearbyStopDriver"
+
+  /tasks/routes/{routeId}/task:
+    get:
+      description: get the daily task
+      tags: []
+      parameters:
+        - name: routeId
+          in: path
+          required: true
+          schema:
+            type: number
+        # when both taskDate and gpsEventTime are omitted, then return the most recent
+        - name: taskDate
+          description: the task date
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date-time
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RouteTaskNearbyStopDriverVehicleEvent"
+
+  /tasks/{taskId}/runs/stops:
+    get:
+      description: get a specific route details (route, runs, stops)
+      tags: []
+      parameters:
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RouteTaskRunStop"
+  /tasks/{taskId}/gps/{runId}/latest:
+    get:
+      description: get latest GPS data for a specific task
+      tags: []
+      parameters:
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: runId
+          description: the task run
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          # gpsEventTime is the lower bound
+        - $ref: "#/components/parameters/gpsEventTime"
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RouteTaskStopEventVehicleFeature"
+  /tasks/{taskId}/gps/{runId}/replay:
+    get:
+      description: get replay GPS data for a specific task and run
+      tags: []
+      parameters:
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: runId
+          description: the task run
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          # gpsEventTime is the higher bound
+        - $ref: "#/components/parameters/gpsEventTime"
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RouteTaskStopEventVehicleFeature"
+
+components:
+  securitySchemes:
+    AWS-Cognito-RealTimeApps:
+      type: apiKey
+      name: Authorization
+      in: header
+      x-amazon-apigateway-authtype: cognito_user_pools
+      x-amazon-apigateway-authorizer:
+        type: cognito_user_pools
+        providerARNs:
+          - "arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}"
+  headers: {}
+  responses: {}
+  parameters:
+    "gpsEventTime":
+      name: gpsEventTime
+      description: GPS time filter
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date-time
+    "limit":
+      name: limit
+      in: query
+      required: false
+      schema:
+        type: number
+        format: int32
+    "offset":
+      name: offset
+      in: query
+      required: false
+      schema:
+        type: number
+        format: int32
+    "query":
+      name: query
+      description: The search query
+      in: query
+      required: true
+      schema:
+        type: string
+    "searchDate":
+      name: searchDate
+      description: search date filter
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date-time
+    "sort":
+      name: sort
+      in: query
+      required: false
+      example: <property>,[asc|desc]
+      style: form
+      explode: true
+      schema:
+        type: array
+        items:
+          type: string
+  schemas:
+    "BusinessUnit":
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+    "BusinessUnitCollection":
+      type: array
+      items:
+        $ref: "#/components/schemas/BusinessUnit"
+    "Driver":
+      allOf:
+        - $ref: "#/components/schemas/Person"
+        - type: object
+          properties:
+            contactPhoneNumber:
+              type: string # do we have driver phone?
+            scheduledStartTime:
+              type: string
+              format: date-time
+            scheduledEndTime:
+              type: string
+              format: date-time
+            signInType:
+              type: string
+            signInCode:
+              type: string
+            signInTime:
+              type: string
+              format: date-time
+            signOutType:
+              type: string
+            signOutCode:
+              type: string
+            signOutTime:
+              type: string
+              format: date-time
+    "DriverSearch":
+      allOf:
+        - $ref: "#/components/schemas/Driver"
+        - type: object
+          properties:
+            tasks:
+              type: array
+              items:
+                $ref: "#/components/schemas/TaskVehicle"
+    "Person":
+      type: object
+      properties:
+        id:
+          type: string
+        firstName:
+          type: string
+        middleName:
+          type: string
+        lastName:
+          type: string
+    "Place":
+      type: object
+    "PlaceSearch":
+      allOf:
+        - $ref: "#/components/schemas/Place"
+    "RouteTaskNearbyStop":
+      allOf:
+        - $ref: "#/components/schemas/Task"
+        - type: object
+          properties:
+            runId:
+              description: active run based on time (e.g. before task = first run, after task = last run, during task = en route run)
+              type: string
+              format: uuid
+            runName:
+              type: string
+            runCode:
+              type: string
+            runType:
+              type: string
+            completeRuns:
+              type: number
+              format: int16
+            totalRuns:
+              type: number
+              format: int16
+            nextStop:
+              $ref: "#/components/schemas/Stop"
+            previousStop:
+              $ref: "#/components/schemas/Stop"
+    "RouteTaskNearbyStopDriver":
+      allOf:
+        - $ref: "#/components/schemas/RouteTaskNearbyStop"
+        - type: object
+          properties:
+            driver:
+              $ref: "#/components/schemas/Driver"
+    "RouteTaskNearbyStopDriverVehicleEvent":
+      allOf:
+        - $ref: "#/components/schemas/RouteTaskNearbyStopDriver"
+        - type: object
+          properties:
+            vehicle:
+              $ref: "#/components/schemas/VehicleEvent"
+    "RouteTaskRunStop":
+      allOf:
+        - $ref: "#/components/schemas/Task"
+        - type: object
+          properties:
+            runs:
+              type: array
+              items:
+                $ref: "#/components/schemas/RunStop"
+    "RouteTaskStopEventVehicleFeature":
+      allOf:
+        - $ref: "#/components/schemas/Task"
+        - type: object
+          required:
+            - coordinates
+            - events
+            - stops
+            - vehicle
+          properties:
+            coordinates:
+              description: >
+                GeoJson feature containing the vehicle GPS coordinates.
+              $ref: "#/components/schemas/FeatureCoordinates"
+            events:
+              description: >
+                Dictionary of GeoJson feature collections. The key represents the
+                event type, and the values are the GeoJson coordinates where each
+                event occured. Each event feature contains properties such as
+                [TODO].
+              type: object
+              additionalProperties:
+                $ref: "#/components/schemas/FeatureCollection"
+            stops:
+              description: >
+                GeoJson feature collection where every stop is a feature in the
+                collection. Each stop feature contains properties such as
+                type (origin, destination, pickup, waypoint),
+                status (open, completed, skipped),
+                scheduled arrival time,
+                actual arrival time,
+                scheduled departure time,
+                etc.
+              $ref: "#/components/schemas/FeatureCollection"
+            vehicle:
+              $ref: "#/components/schemas/VehicleEventFeature"
+    "Run":
+      type: object
+      required:
+        - status
+        - description
+      properties:
+        id:
+          type: string
+          format: uuid # is it a uuid?
+        templateId:
+          type: string
+          format: uuid # is it a uuid?
+        name:
+          type: string
+        description:
+          type: string
+        code:
+          type: string
+        type:
+          type: string
+        status:
+           type: string
+        scheduledStartTime:
+          type: string
+          format: date-time
+        actualStartTime:
+          type: string
+          format: date-time
+        scheduledEndTime:
+          type: string
+          format: date-time
+        actualEndTime:
+          type: string
+          format: date-time
+    "RunStop":
+      allOf:
+        - $ref: "#/components/schemas/Run"
+        - type: object
+          properties:
+            stops:
+              type: array
+              items:
+                $ref: "#/components/schemas/Stop"
+    "Stop":
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid # is it a uuid?
+        templateId:
+          type: string
+          format: uuid # is it a uuid?
+        type:
+          type: string # could be enum?
+        status:
+          type: string # could be enum?
+        name:
+          type: string
+        description:
+          type: string
+        number:
+          type: number
+          format: int16
+        performed:
+          type: string
+        scheduledArrivalTime:
+          type: string
+          format: date-time
+        estimatedArrivalTime:
+          type: string
+          format: date-time
+        actualArrivalTime:
+          type: string
+          format: date-time
+        scheduledDepartureTime:
+          type: string
+          format: date-time
+        actualDepartureTime:
+          type: string
+          format: date-time
+    "StopFeature":
+      description: GeoJson 'Feature' object for a stop
+      externalDocs:
+        url: "https://tools.ietf.org/html/rfc7946#section-3.2"
+      allOf:
+        - $ref: "#/components/schemas/GeoJsonObject"
+        - type: object
+          required:
+            - geometry
+            - properties
+          properties:
+            "geometry":
+              allOf:
+                - nullable: true
+                - $ref: "#/components/schemas/Point"
+            "properties":
+              $ref: "#/components/schemas/Stop"
+            "id":
+              oneOf:
+                - type: number
+                - type: string
+    "Task":
+      type: object
+      required:
+        - totalRuns
+        - completedRuns
+      properties:
+        id:
+          type: string
+          format: uuid # is it a uuid?
+        name:
+          type: string
+        routeId:
+          type: number
+        routeName:
+          type: string
+        templateId:
+          type: string
+          format: uuid # is it a uuid?
+        templateName:
+          type: string
+        type:
+          type: string # could be enum?
+        status:
+          type: string # could be enum?
+        scheduledStartTime:
+          type: string
+          format: date-time
+        actualStartTime:
+          type: string
+          format: date-time
+        scheduledEndTime:
+          type: string
+          format: date-time
+        actualEndTime:
+          type: string
+          format: date-time
+        totalRuns:
+          type: number
+        completedRuns:
+          type: number
+    "TaskDriver":
+      allOf:
+        - $ref: "#/components/schemas/Task"
+        - type: object
+          properties:
+            driver:
+              $ref: "#/components/schemas/Driver"
+    "TaskDriverVehicle":
+      allOf:
+        - $ref: "#/components/schemas/Task"
+        - type: object
+          properties:
+            driver:
+              $ref: "#/components/schemas/Driver"
+            vehicle:
+              $ref: "#/components/schemas/Vehicle"
+    "TaskSearch":
+      allOf:
+        - $ref: "#/components/schemas/TaskDriverVehicle"
+    "TaskVehicle":
+      allOf:
+        - $ref: "#/components/schemas/Task"
+        - type: object
+          properties:
+            vehicle:
+              $ref: "#/components/schemas/Vehicle"
+    "User":
+      allOf:
+        - $ref: "#/components/schemas/Person"
+        - type: object
+          properties:
+            assignedBusinessUnitId:
+              type: number
+    "Vehicle":
+      type: object
+      required:
+        - id
+        - assetNumber
+      properties:
+        id:
+          type: string
+        type:
+          type: string # could be enum?
+        assetNumber:
+          type: string
+        fleetNumber:
+          type: string
+    "VehicleEvent":
+      allOf:
+        - $ref: "#/components/schemas/Vehicle"
+        - type: object
+          required:
+            - heading
+            - eventEndTime
+            - eventId
+          properties:
+            heading:
+              type: number
+              format: double
+            speed:
+              type: number
+              format: int16 # does speed have decimal percision? use double?
+            speedUnit:
+              type: string
+            eventId:
+              type: string
+              format: uuid
+            eventType:
+              type: string
+            eventStartTime:
+              type: string
+              format: date-time
+            eventEndTime:
+              type: string
+              format: date-time
+    "VehicleEventFeature":
+      description: GeoJson 'Feature' object for a vehicle
+      externalDocs:
+        url: "https://tools.ietf.org/html/rfc7946#section-3.2"
+      allOf:
+        - $ref: "#/components/schemas/GeoJsonObject"
+        - type: object
+          required:
+            - geometry
+            - properties
+            - id
+          properties:
+            "geometry":
+              allOf:
+                - $ref: "#/components/schemas/Point"
+            "properties":
+              $ref: "#/components/schemas/VehicleEvent"
+            "id":
+              oneOf:
+                - type: string
+    "VehicleEventRouteTaskNearbyStopDriver":
+      allOf:
+        - $ref: "#/components/schemas/VehicleEvent"
+        - type: object
+          required:
+            - task
+          properties:
+            task:
+              $ref: "#/components/schemas/RouteTaskNearbyStopDriver"
+    "VehicleSearch":
+      allOf:
+        - $ref: "#/components/schemas/Vehicle"
+        - type: object
+          properties:
+            tasks:
+              type: array
+              items:
+                $ref: "#/components/schemas/TaskDriver"
+
+    #---------------------------------------------------------------------------
+    "Pageable":
+      type: object
+      properties:
+        offset:
+          type: number
+          format: int32
+        limit:
+          type: number
+          format: int32
+        total:
+          type: number
+          format: int64
+        sort:
+          type: array
+          items:
+            type: string
+    "DriverSearchPageable":
+      allOf:
+        - $ref: "#/components/schemas/Pageable"
+        - type: object
+          properties:
+            items:
+              type: array
+              items:
+                $ref: "#/components/schemas/DriverSearch"
+    "PlaceSearchPageable":
+      allOf:
+        - $ref: "#/components/schemas/Pageable"
+        - type: object
+          properties:
+            items:
+              type: array
+              items:
+                $ref: "#/components/schemas/PlaceSearch"
+    "TaskSearchPageable":
+      allOf:
+        - $ref: "#/components/schemas/Pageable"
+        - type: object
+          properties:
+            items:
+              type: array
+              items:
+                $ref: "#/components/schemas/TaskSearch"
+    "VehicleSearchPageable":
+      allOf:
+        - $ref: "#/components/schemas/Pageable"
+        - type: object
+          properties:
+            items:
+              type: array
+              items:
+                $ref: "#/components/schemas/VehicleSearch"
+
+    #---------------------------------------------------------------------------
+    "GeoJsonObject":
+      description: >
+        GeoJson object
+        The coordinate reference system for all GeoJSON coordinates is a
+        geographic coordinate reference system, using the World Geodetic System
+        1984 (WGS 84) datum, with longitude and latitude units of decimal
+        degrees.
+        This is equivalent to the coordinate reference system identified by the
+        Open Geospatial Consortium (OGC) URN
+        An OPTIONAL third-position element SHALL be the height in meters above
+        or below the WGS 84 reference ellipsoid.
+        In the absence of elevation values, applications sensitive to height or
+        depth SHOULD interpret positions as being at local ground or sea level.
+      externalDocs:
+        url: "https://tools.ietf.org/html/rfc7946#section-3"
+      type: object
+      properties:
+        "type":
+          type: string
+          enum:
+            - Feature
+            - FeatureCollection
+            - Point
+            - MultiPoint
+            - LineString
+            - MultiLineString
+            - Polygon
+            - MultiPolygon
+            - GeometryCollection
+        "bbox":
+          description: >
+            A GeoJSON object MAY have a member named "bbox" to include
+            information on the coordinate range for its Geometries, Features, or
+            FeatureCollections. The value of the bbox member MUST be an array of
+            length 2*n where n is the number of dimensions represented in the
+            contained geometries, with all axes of the most southwesterly point
+            followed by all axes of the more northeasterly point. The axes order
+            of a bbox follows the axes order of geometries.
+          type: array
+          items:
+            type: number
+      required:
+        - type
+      # discriminator:
+      #   propertyName: type
+
+    #---------------------------------------------------------------------------
+    "Geometry":
+      description: >
+        Abstract type for all GeoJson object except Feature and
+        FeatureCollection
+      externalDocs:
+        url: "https://tools.ietf.org/html/rfc7946#section-3"
+      allOf:
+        - $ref: "#/components/schemas/GeoJsonObject"
+        - type: object
+          properties:
+            "type":
+              type: string
+              enum:
+                - Point
+                - MultiPoint
+                - LineString
+                - MultiLineString
+                - Polygon
+                - MultiPolygon
+                - GeometryCollection
+          required:
+            - type
+          # discriminator:
+          #   propertyName: type
+
+    #---------------------------------------------------------------------------
+    "GeometryElement":
+      description: >
+        Abstract type for all GeoJson 'Geometry' object the type of which is not
+        'GeometryCollection'
+      externalDocs:
+        url: "https://tools.ietf.org/html/rfc7946#section-3"
+      allOf:
+        - $ref: "#/components/schemas/Geometry"
+        - type: object
+          properties:
+            "type":
+              type: string
+              enum:
+                - Point
+                - MultiPoint
+                - LineString
+                - MultiLineString
+                - Polygon
+                - MultiPolygon
+          required:
+            - type
+          # discriminator:
+          #   propertyName: type
+
+    #---------------------------------------------------------------------------
+    "Feature":
+      description: GeoJson 'Feature' object
+      externalDocs:
+        url: "https://tools.ietf.org/html/rfc7946#section-3.2"
+      allOf:
+        - $ref: "#/components/schemas/GeoJsonObject"
+        - type: object
+          required:
+            - geometry
+            - properties
+          properties:
+            "geometry":
+              allOf:
+                - nullable: true
+                - $ref: "#/components/schemas/Geometry"
+            "properties":
+              type: object
+              nullable: true
+            "id":
+              oneOf:
+                - type: number
+                - type: string
+
+    #---------------------------------------------------------------------------
+    "FeatureCollection":
+      description: GeoJson 'FeatureCollection' object
+      externalDocs:
+        url: "https://tools.ietf.org/html/rfc7946#section-3.3"
+      allOf:
+        - $ref: "#/components/schemas/GeoJsonObject"
+        - type: object
+          required:
+            - features
+          properties:
+            "features":
+              type: array
+              items:
+                $ref: "#/components/schemas/Feature"
+
+    #---------------------------------------------------------------------------
+    "FeatureCoordinates":
+      description: GeoJson 'FeatureCoordinates' object
+      allOf:
+        - $ref: "#/components/schemas/GeoJsonObject"
+        - type: object
+          required:
+            - type
+            - geometry
+          properties:
+            "type":
+              type: "string"
+              enum: [Feature]
+            "geometry":
+              allOf:
+                - nullable: true
+                - $ref: "#/components/schemas/Geometry"
+
+    #---------------------------------------------------------------------------
+    "Position":
+      description: >
+        GeoJson fundamental geometry construct.
+        A position is an array of numbers. There MUST be two or more elements.
+        The first two elements are longitude and latitude, or easting and
+        northing, precisely in that order and using decimal numbers.
+        Altitude or elevation MAY be included as an optional third element.
+        Implementations SHOULD NOT extend positions beyond three elements
+        because the semantics of extra elements are unspecified and ambiguous.
+        Historically, some implementations have used a fourth element to carry
+        a linear referencing measure (sometimes denoted as "M") or a numerical
+        timestamp, but in most situations a parser will not be able to properly
+        interpret these values. The interpretation and meaning of additional
+        elements is beyond the scope of this specification, and additional
+        elements MAY be ignored by parsers.
+      externalDocs:
+        url: "https://tools.ietf.org/html/rfc7946#section-3.1.1"
+      type: array
+      minItems: 2
+      maxItems: 3
+      items:
+        type: number
+
+    #---------------------------------------------------------------------------
+    "LineStringCoordinates":
+      description: >
+        GeoJson fundamental geometry construct, array of two or more positions.
+      externalDocs:
+        url: "https://tools.ietf.org/html/rfc7946#section-3.1.4"
+      type: array
+      items:
+        $ref: "#/components/schemas/Position"
+      minItems: 2
+
+    #---------------------------------------------------------------------------
+    "LinearRing":
+      description: >
+        A linear ring is a closed LineString with four or more positions.
+        The first and last positions are equivalent, and they MUST contain
+        identical values; their representation SHOULD also be identical.
+        A linear ring is the boundary of a surface or the boundary of a hole in
+        a surface.
+        A linear ring MUST follow the right-hand rule with respect to the area
+        it bounds, i.e., exterior rings are counterclockwise, and holes are
+        clockwise.
+      externalDocs:
+        url: "https://tools.ietf.org/html/rfc7946#section-3.1.6"
+      type: array
+      items:
+        $ref: "#/components/schemas/Position"
+      minItems: 4
+
+    #---------------------------------------------------------------------------
+    "Point":
+      description: GeoJson geometry
+      externalDocs:
+        url: "https://tools.ietf.org/html/rfc7946#section-3.1.2"
+      allOf:
+        - $ref: "#/components/schemas/GeometryElement"
+        - type: object
+          required:
+            - type
+            - coordinates
+          properties:
+            "type":
+              type: "string"
+              enum: [Point]
+            "coordinates":
+              $ref: "#/components/schemas/Position"
+
+    #---------------------------------------------------------------------------
+    "MultiPoint":
+      description: GeoJson geometry
+      externalDocs:
+        url: "https://tools.ietf.org/html/rfc7946#section-3.1.3"
+      allOf:
+        - $ref: "#/components/schemas/GeometryElement"
+        - type: object
+          required:
+            - coordinates
+          properties:
+            "coordinates":
+              type: array
+              items:
+                $ref: "#/components/schemas/Position"
+
+    #---------------------------------------------------------------------------
+    "LineString":
+      description: GeoJson geometry
+      externalDocs:
+        url: "https://tools.ietf.org/html/rfc7946#section-3.1.4"
+      allOf:
+        - $ref: "#/components/schemas/GeometryElement"
+        - type: object
+          required:
+            - coordinates
+          properties:
+            "coordinates":
+              $ref: "#/components/schemas/LineStringCoordinates"
+
+    #---------------------------------------------------------------------------
+    "MultiLineString":
+      description: GeoJson geometry
+      externalDocs:
+        url: "https://tools.ietf.org/html/rfc7946#section-3.1.5"
+      allOf:
+        - $ref: "#/components/schemas/GeometryElement"
+        - type: object
+          required:
+            - coordinates
+          properties:
+            "coordinates":
+              type: array
+              items:
+                $ref: "#/components/schemas/LineStringCoordinates"
+
+    #---------------------------------------------------------------------------
+    "Polygon":
+      description: GeoJson geometry
+      externalDocs:
+        url: "https://tools.ietf.org/html/rfc7946#section-3.1.6"
+      allOf:
+        - $ref: "#/components/schemas/GeometryElement"
+        - type: object
+          required:
+            - coordinates
+          properties:
+            "coordinates":
+              type: array
+              items:
+                $ref: "#/components/schemas/LinearRing"
+
+    #---------------------------------------------------------------------------
+    "MultiPolygon":
+      description: GeoJson geometry
+      externalDocs:
+        url: "https://tools.ietf.org/html/rfc7946#section-3.1.7"
+      allOf:
+        - $ref: "#/components/schemas/GeometryElement"
+        - type: object
+          required:
+            - coordinates
+          properties:
+            "coordinates":
+              type: array
+              items:
+                type: array
+                items:
+                  $ref: "#/components/schemas/LinearRing"
+
+    #---------------------------------------------------------------------------
+    "GeometryCollection":
+      type: object
+      description: >
+        GeoJson geometry collection
+        GeometryCollections composed of a single part or a number of parts of a
+        single type SHOULD be avoided when that single part or a single object
+        of multipart type (MultiPoint, MultiLineString, or MultiPolygon) could
+        be used instead.
+      externalDocs:
+        url: "https://tools.ietf.org/html/rfc7946#section-3.1.8"
+      allOf:
+        - $ref: "#/components/schemas/Geometry"
+        - type: object
+          required:
+            - geometries
+          properties:
+            "geometries":
+              type: array
+              items:
+                $ref: "#/components/schemas/GeometryElement"
+              minItems: 0
+
+  #=============================================================================
+tags: []
+security: []

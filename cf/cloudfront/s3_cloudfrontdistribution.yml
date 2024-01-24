@@ -1,0 +1,176 @@
+---
+Conditions:
+  ShouldNotCreateEnvResources:
+    Fn::Equals:
+      - ${sls:stage}
+      - NONE
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+    Properties:
+      BucketName:
+        Fn::If:
+          - ShouldNotCreateEnvResources
+          - ${self:custom.project}-${self:service}-s3hosting
+          - ${self:custom.project}-${self:service}-s3hosting-${sls:stage}
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: index.html
+      CorsConfiguration:
+        CorsRules:
+          - AllowedHeaders:
+              - Authorization
+              - Content-Length
+            AllowedMethods:
+              - GET
+            AllowedOrigins:
+              - "*"
+            MaxAge: 3000
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      Tags:
+          - Key: Name
+            Value: ${self:custom.project}-${self:service}-s3Hosting-${sls:stage}
+          - Key: Resource
+            Value: S3
+  PrivateBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    DependsOn: OriginAccessIdentity
+    Properties:
+      PolicyDocument:
+        Id: CloudFrontS3Policy
+        Version: '2012-10-17'
+        Statement:
+          - Sid: APIReadForGetBucketObjects
+            Effect: Allow
+            Principal:
+              CanonicalUser:
+                Fn::GetAtt:
+                  - OriginAccessIdentity
+                  - S3CanonicalUserId
+            Action: s3:GetObject
+            Resource:
+              Fn::Join:
+                - ""
+                - - "arn:aws:s3:::"
+                  - Ref: S3Bucket
+                  - /*
+      Bucket:
+        Ref: S3Bucket
+  OriginAccessIdentity:
+    Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+    Properties:
+      CloudFrontOriginAccessIdentityConfig:
+        Comment: CloudFrontOriginAccessIdentityConfig
+  CloudFrontDistribution:
+    Type: AWS::CloudFront::Distribution
+    DependsOn:
+      - S3Bucket
+      - OriginAccessIdentity
+    Properties:
+      DistributionConfig:
+        ViewerCertificate:
+  #-------------------------------------------------------------------------------
+          MinimumProtocolVersion: TLSv1.2_2021
+          SslSupportMethod: sni-only
+          AcmCertificateArn: ${self:custom.certificate-arn}  # acm cert must be stored in us-east-1
+        Aliases:
+          - ${self:custom.alias-url}
+  #-------------------------------------------------------------------------------
+        HttpVersion: http2
+        Origins:
+          - DomainName:
+              Fn::GetAtt:
+                - S3Bucket
+                - RegionalDomainName
+            Id: hostingS3Bucket
+            S3OriginConfig:
+              OriginAccessIdentity:
+                Fn::Join:
+                  - ""
+                  - - origin-access-identity/cloudfront/
+                    - Ref: OriginAccessIdentity
+        Enabled: "true"
+        DefaultCacheBehavior:
+          AllowedMethods:
+            - DELETE
+            - GET
+            - HEAD
+            - OPTIONS
+            - PATCH
+            - POST
+            - PUT
+          TargetOriginId: hostingS3Bucket
+          ForwardedValues:
+            QueryString: "false"
+          ViewerProtocolPolicy: redirect-to-https
+          DefaultTTL: 86400
+          MaxTTL: 31536000
+          MinTTL: 60
+          Compress: true
+        DefaultRootObject: index.html
+        CustomErrorResponses:
+          - ErrorCachingMinTTL: 300
+            ErrorCode: 400
+            ResponseCode: 200
+            ResponsePagePath: /
+          - ErrorCachingMinTTL: 300
+            ErrorCode: 403
+            ResponseCode: 200
+            ResponsePagePath: /
+          - ErrorCachingMinTTL: 300
+            ErrorCode: 404
+            ResponseCode: 200
+            ResponsePagePath: /
+      Tags:
+          - Key: Name
+            Value: ${self:custom.project}-${self:service}-cf-distribution-${sls:stage}
+          - Key: Resource
+            Value: CloudFront
+Outputs:
+  Region:
+    Value:
+      Ref: AWS::Region
+  HostingBucketName:
+    Description: Hosting bucket name
+    Value:
+      Ref: S3Bucket
+  WebsiteURL:
+    Value:
+      Fn::GetAtt:
+        - S3Bucket
+        - WebsiteURL
+    Description: URL for website hosted on S3
+  S3BucketSecureURL:
+    Value:
+      Fn::Join:
+        - ""
+        - - https://
+          - Fn::GetAtt:
+              - S3Bucket
+              - DomainName
+    Description: Name of S3 bucket to hold website content
+  CloudFrontDistributionID:
+    Value:
+      Ref: CloudFrontDistribution
+  CloudFrontDomainName:
+    Value:
+      Fn::GetAtt:
+        - CloudFrontDistribution
+        - DomainName
+    Export:
+      Name: ExportedCloudFrontDNSName
+  CloudFrontSecureURL:
+    Value:
+      Fn::Join:
+        - ""
+        - - https://
+          - Fn::GetAtt:
+              - CloudFrontDistribution
+              - DomainName
+  CloudFrontOriginAccessIdentity:
+    Value:
+      Ref: OriginAccessIdentity

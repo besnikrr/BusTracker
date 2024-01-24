@@ -1,0 +1,69 @@
+version: 0.2
+run-as: root
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 16
+    commands:
+      - echo "Install Toolchain"
+      - echo $CROSS_ACCOUNT_ROLE
+      - echo $DEPLOY_EXECUTION_ROLE
+      - echo $TARGET_ACCOUNT_ID
+      - echo $STAGE
+      # - cd $CODEBUILD_SRC_DIR
+      - mkdir ./serverless-package
+      - chmod +x ./devops/aws-profile-setup.sh
+
+      #- rm package-lock.json
+      - npm install --silent --progress=false -g npm
+
+      ## Dependencies
+      - npm install --silent --progress-false
+      - npm --version
+      - npm install --silent --progress=false -g serverless
+      - serverless plugin install -n serverless-deployment-bucket
+      - serverless plugin install -n serverless-plugin-resource-tagging
+
+  build:
+    commands:
+      - echo "Start Deploy"
+
+      - . ./devops/aws-profile-setup.sh
+
+      # Build package
+      - >
+        sls package --package serverless-package --stage $STAGE
+        --param="targetAccountId=$TARGET_ACCOUNT_ID"
+        --param="cfnRoleArn=$DEPLOY_EXECUTION_ROLE"
+      - ls serverless-package
+
+      # Deploy package
+      - >
+        sls deploy --package serverless-package --stage $STAGE
+        --param="targetAccountId=$TARGET_ACCOUNT_ID"
+        --param="cfnRoleArn=$DEPLOY_EXECUTION_ROLE"
+
+      # build UI
+      - cd FG-A-FS-RealTimeUIApp
+      - yarn install
+      - yarn build --configuration $STAGE
+
+      # S3 Sync abd cloudfront distro invalidating
+  post_build:
+    commands:
+      - echo "stage is" $STAGE
+      # Install new web application code by syncing files (and deleting destination files not in the source)
+      - echo "Start S3 Sync"
+      - aws s3 sync dist s3://fg-adb-locater-s3hosting-$STAGE --delete
+      # Install jq
+      - apt-get update && apt-get install -y curl jq
+      # Find the distribution ID for the one with an alias which contains a common token in each environment
+      - export DISTRIBUTION_ID=$(aws cloudfront list-distributions | jq -r --arg stage "$STAGE" '.DistributionList.Items | map(select(.Origins.Items[]? | .DomainName | contains("fg-adb-locater-s3hosting-\($stage).s3.us-east-1.amazonaws.com"))) | .[].Id')
+      # Invalidate Cache
+      - echo "Invalidating CloudFront cache with Distribution ID:" ${DISTRIBUTION_ID}
+      - aws cloudfront create-invalidation --distribution-id ${DISTRIBUTION_ID} --paths "/*"
+
+cache:
+  paths:
+    - node_modules

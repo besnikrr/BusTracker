@@ -1,0 +1,21 @@
+# deploy conditions
+# different infra is deployed for each environment
+
+Conditions:
+  IsDevelopment: !Equals
+    - ${self:provider.stage}
+    - dev
+  IsUAT: !Equals
+    - ${self:provider.stage}
+    - uat
+  IsProduction: !Equals
+    - ${self:provider.stage}
+    - prod
+
+  NoCreateS3: !Or
+    - !Condition IsDevelopment
+    - !Condition IsDevelopment
+
+  CreateS3: !Or
+    - !Condition IsUAT
+    - !Condition IsProduction

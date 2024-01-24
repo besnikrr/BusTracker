@@ -1,0 +1,35 @@
+<div class="map-container">
+  <div id="map" #map></div>
+  <div class="map-layer text-dark py-2.5 px-5">
+    <span>
+      <svg
+        *ngIf="!dataError"
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <mask
+          id="mask0_738_1532"
+          style="mask-type: alpha"
+          maskUnits="userSpaceOnUse"
+          x="0"
+          y="0"
+          width="20"
+          height="20">
+          <rect width="20" height="20" fill="#D9D9D9" />
+        </mask>
+        <g mask="url(#mask0_738_1532)">
+          <path
+            d="M10 17.146C9.88867 17.146 9.781 17.125 9.677 17.083C9.573 17.0417 9.47234 16.9723 9.375 16.875L0.625004 8.14601C0.444337 7.97934 0.354004 7.77101 0.354004 7.52101C0.354004 7.27101 0.444337 7.06967 0.625004 6.91701C1.91634 5.75034 3.36767 4.86134 4.979 4.25001C6.59034 3.63867 8.264 3.33301 10 3.33301C11.736 3.33301 13.4097 3.63867 15.021 4.25001C16.6323 4.86134 18.0837 5.75034 19.375 6.91701C19.5557 7.06967 19.646 7.27101 19.646 7.52101C19.646 7.77101 19.5557 7.97934 19.375 8.14601L10.625 16.875C10.5277 16.9723 10.427 17.0417 10.323 17.083C10.219 17.125 10.1113 17.146 10 17.146Z"
+            fill="#7AB800" />
+        </g>
+      </svg>
+    </span>
+    <p class="text-dark font-medium" *ngIf="!dataError">Live</p>
+    <mat-icon class="material-symbols-sharp text-primary-red" *ngIf="dataError">
+      signal_wifi_bad
+    </mat-icon>
+    <p *ngIf="dataError" class="text-primary-red">Last connected at {{ lastPing }}</p>
+  </div>
+</div>

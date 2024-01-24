@@ -1,0 +1,70 @@
+<nav class="relative flex flex-wrap items-center justify-between px-4 text-black navbar">
+  <div class="flex flex-wrap logoContainer justify-between items-end pt-1 pb-1">
+    <a class="flex whitespace-no-wrap" href="#">
+      <img class="mr-2 headerLogo" src="assets/logo.png" alt="First Student" />
+    </a>
+    <div class="flex uppercase text-primary-blue">
+      <h6 class="overview text-xl font-bold">Bus Tracker</h6>
+    </div>
+  </div>
+
+  <form
+    class="form-inline flex md:flex-row flex-col md:items-center items-end w-auto justify-between">
+    <span class="md:pr-8 navText">
+      <mat-form-field>
+        <mat-select [(value)]="selectedBusinessUnit" hideSingleSelectionIndicator>
+          <mat-option *ngFor="let businessUnit of businessUnits" [value]="businessUnit">
+            #{{ businessUnit.id }} {{ businessUnit.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </span>
+    <button mat-button [matMenuTriggerFor]="menu" class="flex items-center flex-row-reverse gap-2">
+      <div class="flex">
+        <svg
+          class="mr-2"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="12" fill="#007AC9" />
+          <path
+            d="M12 5.6625C12.2413 5.6625 12.4802 5.71003 12.7032 5.80237C12.9261 5.89471 13.1287 6.03006 13.2993 6.20069C13.4699 6.37132 13.6053 6.57388 13.6976 6.79682C13.79 7.01976 13.8375 7.2587 13.8375 7.5C13.8375 7.7413 13.79 7.98025 13.6976 8.20318C13.6053 8.42612 13.4699 8.62868 13.2993 8.79931C13.1287 8.96994 12.9261 9.10529 12.7032 9.19763C12.4802 9.28997 12.2413 9.3375 12 9.3375C11.5127 9.3375 11.0453 9.14391 10.7007 8.79931C10.3561 8.45471 10.1625 7.98734 10.1625 7.5C10.1625 7.01266 10.3561 6.54529 10.7007 6.20069C11.0453 5.85609 11.5127 5.6625 12 5.6625ZM12 13.5375C14.5988 13.5375 17.3375 14.815 17.3375 15.375V16.3375H6.6625V15.375C6.6625 14.815 9.40125 13.5375 12 13.5375ZM12 4C10.0662 4 8.5 5.56625 8.5 7.5C8.5 9.43375 10.0662 11 12 11C13.9338 11 15.5 9.43375 15.5 7.5C15.5 5.56625 13.9338 4 12 4ZM12 11.875C9.66375 11.875 5 13.0475 5 15.375V18H19V15.375C19 13.0475 14.3363 11.875 12 11.875Z"
+            fill="white" />
+        </svg>
+        <span class="navText" *ngIf="user">{{ user.firstName }} {{ user.lastName }}</span>
+      </div>
+
+      <mat-icon class="text-dark">arrow_drop_down</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" xPosition="before" class="navMenu">
+      <button mat-menu-item class="logout" (click)="onLogout()">
+        <svg
+          class="mr-2"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <mask
+            id="mask0_519_1905"
+            style="mask-type: alpha"
+            maskUnits="userSpaceOnUse"
+            x="0"
+            y="0"
+            width="20"
+            height="20">
+            <rect width="20" height="20" fill="#D9D9D9" />
+          </mask>
+          <g mask="url(#mask0_519_1905)">
+            <path
+              d="M12.625 13.667C12.4583 13.5003 12.375 13.2953 12.375 13.052C12.375 12.8093 12.4583 12.6047 12.625 12.438L14.188 10.875H8.396C8.16 10.875 7.955 10.7883 7.781 10.615C7.60767 10.441 7.521 10.236 7.521 10C7.521 9.764 7.60767 9.559 7.781 9.385C7.955 9.21167 8.16 9.125 8.396 9.125H14.125L12.604 7.583C12.4513 7.41633 12.375 7.215 12.375 6.979C12.375 6.743 12.4583 6.54167 12.625 6.375C12.7917 6.20833 12.9967 6.125 13.24 6.125C13.4827 6.125 13.6873 6.20833 13.854 6.375L16.875 9.396C16.9723 9.49333 17.0417 9.594 17.083 9.698C17.125 9.802 17.146 9.90967 17.146 10.021C17.146 10.1323 17.125 10.24 17.083 10.344C17.0417 10.448 16.9723 10.5487 16.875 10.646L13.833 13.688C13.6663 13.8547 13.4687 13.938 13.24 13.938C13.0107 13.938 12.8057 13.8477 12.625 13.667ZM4.25 17.5C3.764 17.5 3.35067 17.33 3.01 16.99C2.67 16.6493 2.5 16.236 2.5 15.75V4.25C2.5 3.764 2.67 3.35067 3.01 3.01C3.35067 2.67 3.764 2.5 4.25 2.5H9.104C9.34 2.5 9.545 2.58667 9.719 2.76C9.89233 2.934 9.979 3.139 9.979 3.375C9.979 3.611 9.89233 3.816 9.719 3.99C9.545 4.16333 9.34 4.25 9.104 4.25H4.25V15.75H9.104C9.34 15.75 9.545 15.8367 9.719 16.01C9.89233 16.184 9.979 16.389 9.979 16.625C9.979 16.861 9.89233 17.066 9.719 17.24C9.545 17.4133 9.34 17.5 9.104 17.5H4.25Z"
+              fill="#1C1B1F" />
+          </g>
+        </svg>
+        <span class="navText">Log Out</span>
+      </button>
+    </mat-menu>
+  </form>
+</nav>

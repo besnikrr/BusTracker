@@ -1,0 +1,208 @@
+<div class="flex flex-col timeline" *ngIf="task">
+  <div class="flex justify-between items-center mb-1.5 pl-7 pr-6">
+    <h6 class="text-xl text-dark font-bold uppercase">Route History</h6>
+    <p class="text-sm text-dark font-normal">
+      {{ routeStatus }} - {{ task.completedRuns }}/{{ task.totalRuns }} Runs Complete
+    </p>
+  </div>
+  <span class="divider"></span>
+  <div class="scrollable">
+    <mat-accordion [multi]="false">
+      <mat-expansion-panel
+        *ngFor="let run of runs; let runIndex = index"
+        hideToggle
+        class="run-accordion"
+        [expanded]="expandedRuns[runIndex]"
+        #mep="matExpansionPanel">
+        <mat-expansion-panel-header [ngClass]="mep.expanded ? 'border-bottom--light' : ''">
+          <mat-panel-description class="w-100">
+            <div class="flex justify-between pl-7 w-full">
+              <div class="flex items-center">
+                <span class="clicked mr-4"></span>
+                <div class="flex flex-col">
+                  <p class="text-base font-semibold text-dark">
+                    {{ run.name }} {{ run.templateId }}
+                  </p>
+                  <div class="flex">
+                    <p
+                      class="text-sm font-normal text-dark mr-2.5"
+                      [ngClass]="{ strike: run.status === runStatus.COMPLETED }">
+                      {{ run.scheduledStartTime | formatTime : "short" }} -
+                      {{ run.scheduledEndTime | formatTime : "short" }}
+                    </p>
+                    <p
+                      *ngIf="run.status === runStatus.COMPLETED"
+                      class="text-sm font-semibold text-red">
+                      {{
+                        run.actualStartTime ? (run.actualStartTime | formatTime : "short") : "N/A"
+                      }}
+                      -
+                      {{ run.actualEndTime ? (run.actualEndTime | formatTime : "short") : "N/A" }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="box text-med p-2.5 font-normal text-sm ml-3"
+                [ngClass]="{
+                  active: run.status === runStatus.ACTIVE || run.status === runStatus.INACTIVE
+                }">
+                <ng-container *ngIf="run.status === runStatus.ACTIVE">
+                  {{ statusValues.EN_ROUTE }}
+                </ng-container>
+                <ng-container *ngIf="run.status === runStatus.COMPLETED">
+                  {{ "Complete" }}
+                </ng-container>
+                <ng-container *ngIf="run.status === runStatus.INACTIVE">
+                  {{ statusValues.NOT_STARTED }}
+                </ng-container>
+              </div>
+            </div>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-accordion *ngFor="let stop of run.stops; let stopIndex = index" class="stop-accordion">
+          <mat-expansion-panel
+            #actualMatExpansion
+            [disabled]="stop.performed === 'N' || stop.typeCode === stopType.DEPOT_STOP">
+            <mat-expansion-panel-header
+              class="flex"
+              [ngClass]="{ 'custom-header': stop.description?.length > 42 }">
+              <mat-panel-description class="flex justify-between">
+                <div class="flex items-center custom-description">
+                  <div
+                    class="stop-circle"
+                    [ngClass]="{
+                      completed: stop.performed === 'Y',
+                      planned: stop.performed === 'N' && stop.typeCode !== stopType.DEPOT_STOP,
+                      depot: stop.typeCode === stopType.DEPOT_STOP && stop.performed === 'N'
+                    }">
+                    <svg
+                      *ngIf="stop.typeCode === stopType.DEPOT_STOP && stop.performed === 'Y'"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 10 10"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M5.00004 1.6252L1.05024 3.2128V8.4502H1.95024V5.5C1.95024 5.2084 2.05224 4.9606 2.25624 4.7566C2.46064 4.5522 2.70864 4.45 3.00024 4.45H6.99984C7.29144 4.45 7.53944 4.5522 7.74384 4.7566C7.94784 4.9606 8.04984 5.2084 8.04984 5.5V8.4502H8.94984V3.2128L5.00004 1.6252ZM3.00024 9.5002H1.05024C0.758644 9.5002 0.510644 9.3982 0.306244 9.1942C0.102244 8.9898 0.000244141 8.7418 0.000244141 8.4502V3.2128C0.000244141 2.996 0.0606441 2.8002 0.181444 2.6254C0.302244 2.4502 0.462644 2.321 0.662644 2.2378L4.61244 0.650195C4.73764 0.600195 4.86684 0.575195 5.00004 0.575195C5.13324 0.575195 5.26244 0.600195 5.38764 0.650195L9.33744 2.2378C9.53744 2.321 9.69784 2.4502 9.81864 2.6254C9.93944 2.8002 9.99984 2.996 9.99984 3.2128V8.4502C9.99984 8.7418 9.89784 8.9898 9.69384 9.1942C9.48944 9.3982 9.24144 9.5002 8.94984 9.5002H6.99984V5.5H3.00024V9.5002ZM3.47484 9.5002V8.4502H4.52484V9.5002H3.47484ZM4.47504 8.0002V6.9502H5.52504V8.0002H4.47504ZM5.47524 9.5002V8.4502H6.52524V9.5002H5.47524Z"
+                        fill="#F6F7FC" />
+                    </svg>
+                    <svg
+                      *ngIf="stop.typeCode === stopType.DEPOT_STOP && stop.performed === 'N'"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 10 10"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M5.00004 1.6252L1.05024 3.2128V8.4502H1.95024V5.5C1.95024 5.2084 2.05224 4.9606 2.25624 4.7566C2.46064 4.5522 2.70864 4.45 3.00024 4.45H6.99984C7.29144 4.45 7.53944 4.5522 7.74384 4.7566C7.94784 4.9606 8.04984 5.2084 8.04984 5.5V8.4502H8.94984V3.2128L5.00004 1.6252ZM3.00024 9.5002H1.05024C0.758644 9.5002 0.510644 9.3982 0.306244 9.1942C0.102244 8.9898 0.000244141 8.7418 0.000244141 8.4502V3.2128C0.000244141 2.996 0.0606441 2.8002 0.181444 2.6254C0.302244 2.4502 0.462644 2.321 0.662644 2.2378L4.61244 0.650195C4.73764 0.600195 4.86684 0.575195 5.00004 0.575195C5.13324 0.575195 5.26244 0.600195 5.38764 0.650195L9.33744 2.2378C9.53744 2.321 9.69784 2.4502 9.81864 2.6254C9.93944 2.8002 9.99984 2.996 9.99984 3.2128V8.4502C9.99984 8.7418 9.89784 8.9898 9.69384 9.1942C9.48944 9.3982 9.24144 9.5002 8.94984 9.5002H6.99984V5.5H3.00024V9.5002ZM3.47484 9.5002V8.4502H4.52484V9.5002H3.47484ZM4.47504 8.0002V6.9502H5.52504V8.0002H4.47504ZM5.47524 9.5002V8.4502H6.52524V9.5002H5.47524Z"
+                        fill="#212121" />
+                    </svg>
+                    <span *ngIf="stop.typeCode === stopType.STUDENT_STOP">{{ stop.ordering }}</span>
+                    <span
+                      class="school-icon"
+                      *ngIf="stop.typeCode === stopType.SCHOOL_STOP && stop.performed === 'N'">
+                      <svg
+                        width="15"
+                        height="15"
+                        viewBox="0 0 10 10"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M1.975 11.2499C1.6348 11.2499 1.34547 11.1309 1.107 10.8929C0.869 10.6544 0.75 10.3651 0.75 10.0249V4.29329C0.75 3.95309 0.869 3.66399 1.107 3.42599C1.34547 3.18752 1.6348 3.06829 1.975 3.06829H4.2353V2.47049C4.2353 2.39302 4.24253 2.31532 4.257 2.23739C4.27193 2.15945 4.29387 2.08409 4.3228 2.01129C4.3522 1.93849 4.3886 1.87035 4.432 1.80689C4.47587 1.74389 4.52697 1.68322 4.5853 1.62489L5.5625 0.618285C5.67917 0.492285 5.82267 0.431618 5.993 0.436285C6.16287 0.440952 6.31103 0.501618 6.4375 0.618285L7.4294 1.61019C7.53627 1.72685 7.6212 1.85822 7.6842 2.00429C7.74767 2.14989 7.7794 2.30529 7.7794 2.47049V5.38739H10.025C10.3652 5.38739 10.6545 5.50639 10.893 5.74439C11.131 5.98285 11.25 6.27219 11.25 6.61239V10.0249C11.25 10.3651 11.131 10.6544 10.893 10.8929C10.6545 11.1309 10.3652 11.2499 10.025 11.2499H1.975ZM1.975 10.0249H3.0684V8.93149H1.975V10.0249ZM1.975 7.70649H3.0684V6.61239H1.975V7.70649ZM1.975 5.38739H3.0684V4.29329H1.975V5.38739ZM5.4603 10.0249H6.5544V8.93149H5.4603V10.0249ZM5.4603 7.70649H6.5544V6.61239H5.4603V7.70649ZM5.4603 5.38739H6.5544V4.29329H5.4603V5.38739ZM5.4603 3.06829H6.5544V1.97489H5.4603V3.06829ZM8.9316 10.0249H10.025V8.93149H8.9316V10.0249ZM8.9316 7.70649H10.025V6.61239H8.9316V7.70649Z"
+                          fill="#082747" />
+                      </svg>
+                      <span
+                        class="school-number school-number--planned font-extrabold text-xs"
+                        *ngIf="stopType.SCHOOL_STOP && stop.performed === 'N'"
+                        >{{ stop.ordering }}</span
+                      >
+                    </span>
+                    <span
+                      class="school-icon"
+                      *ngIf="stop.typeCode === stopType.SCHOOL_STOP && stop.performed === 'Y'">
+                      <svg
+                        width="15"
+                        height="15"
+                        viewBox="0 0 10 10"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M1.975 11.2499C1.6348 11.2499 1.34547 11.1309 1.107 10.8929C0.869 10.6544 0.75 10.3651 0.75 10.0249V4.29329C0.75 3.95309 0.869 3.66399 1.107 3.42599C1.34547 3.18752 1.6348 3.06829 1.975 3.06829H4.2353V2.47049C4.2353 2.39302 4.24253 2.31532 4.257 2.23739C4.27193 2.15945 4.29387 2.08409 4.3228 2.01129C4.3522 1.93849 4.3886 1.87035 4.432 1.80689C4.47587 1.74389 4.52697 1.68322 4.5853 1.62489L5.5625 0.618285C5.67917 0.492285 5.82267 0.431618 5.993 0.436285C6.16287 0.440952 6.31103 0.501618 6.4375 0.618285L7.4294 1.61019C7.53627 1.72685 7.6212 1.85822 7.6842 2.00429C7.74767 2.14989 7.7794 2.30529 7.7794 2.47049V5.38739H10.025C10.3652 5.38739 10.6545 5.50639 10.893 5.74439C11.131 5.98285 11.25 6.27219 11.25 6.61239V10.0249C11.25 10.3651 11.131 10.6544 10.893 10.8929C10.6545 11.1309 10.3652 11.2499 10.025 11.2499H1.975ZM1.975 10.0249H3.0684V8.93149H1.975V10.0249ZM1.975 7.70649H3.0684V6.61239H1.975V7.70649ZM1.975 5.38739H3.0684V4.29329H1.975V5.38739ZM5.4603 10.0249H6.5544V8.93149H5.4603V10.0249ZM5.4603 7.70649H6.5544V6.61239H5.4603V7.70649ZM5.4603 5.38739H6.5544V4.29329H5.4603V5.38739ZM5.4603 3.06829H6.5544V1.97489H5.4603V3.06829ZM8.9316 10.0249H10.025V8.93149H8.9316V10.0249ZM8.9316 7.70649H10.025V6.61239H8.9316V7.70649Z"
+                          fill="#F5F5F5" />
+                      </svg>
+                      <span
+                        class="school-number school-number--completed font-extrabold text-xs"
+                        *ngIf="stopType.SCHOOL_STOP && stop.performed === 'Y'"
+                        >{{ stop.ordering }}</span
+                      >
+                    </span>
+                  </div>
+                  <div class="flex flex-col">
+                    <p class="text-base text-dark font-regular">
+                      {{ stop.description?.length > 0 ? stop.description : "Stop #" }}
+                    </p>
+                    <div
+                      class="flex flex-row gap-5"
+                      *ngIf="logit(actualMatExpansion) && stop.performed === 'Y'">
+                      <s class="text-sm text-light font-normal c">
+                        Scheduled
+                        <span class="text-light font-semibold font-medium"
+                          >&nbsp;{{ stop.scheduledArrivalTime | formatTime : "short" }}</span
+                        >
+                      </s>
+                      <p class="text-sm text-light font-normal">
+                        Actual
+                        <span class="text-dark font-medium ml-1">{{
+                          stop.actualArrivalTime | formatTime : "short"
+                        }}</span>
+                      </p>
+                    </div>
+                    <p
+                      *ngIf="logit(actualMatExpansion) && stop.performed === 'N'"
+                      class="text-sm text-light font-normal">
+                      Scheduled
+                      <span class="text-dark font-medium ml-2">{{
+                        stop.scheduledArrivalTime | formatTime : "short"
+                      }}</span>
+                    </p>
+                  </div>
+                </div>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div *ngIf="stop.performed === 'Y'">
+              <div class="flex flex-col mb-3.5">
+                <div class="flex">
+                  <s class="flex mr-2">
+                    <p class="text-sm text-light font-normal">Scheduled</p>
+                    <span class="text-sm text-light font-semibold">
+                      &nbsp;{{ stop.scheduledArrivalTime | formatTime : "short" }}
+                    </span>
+                  </s>
+                  <p class="text-sm text-light font-normal ml-3">Actual</p>
+                  <span class="text-sm text-dark font-semibold ml-1"
+                    >{{ stop.actualArrivalTime | formatTime : "long" }}
+                  </span>
+                </div>
+              </div>
+              <div class="flex mb-3.5">
+                <p class="text-sm text-light font-normal">Duration</p>
+                <span class="text-sm text-dark font-semibold ml-2">
+                  {{ stop.actualDepartureTime | durationDate : stop.actualArrivalTime }}</span
+                >
+              </div>
+              <div class="flex flex-col">
+                <div class="flex">
+                  <p class="text-sm text-light font-normal">Departure</p>
+                  <span class="text-sm text-dark font-semibold ml-2">{{
+                    stop.actualDepartureTime | formatTime : "long"
+                  }}</span>
+                </div>
+              </div>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>

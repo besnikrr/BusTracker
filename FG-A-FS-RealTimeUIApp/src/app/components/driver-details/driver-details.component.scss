@@ -1,0 +1,140 @@
+.driverContainer {
+  border-bottom: 1px solid rgba($color: #c1c1c1, $alpha: 1);
+  border-top: 1px solid rgba($color: #c1c1c1, $alpha: 0.5);
+}
+.driverName {
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  margin-bottom: 6px;
+}
+.phoneIcon {
+  font-size: 20px;
+}
+.hoverActive {
+  background-color: #f5f5f5;
+  border-top-width: 1px 0px;
+  border-top-style: solid;
+  border-top-color: #c1c1c1;
+}
+.driverContainer{
+    border-bottom: 1px solid rgba($color: #C1C1C1, $alpha: 1);
+    border-top: 1px solid rgba($color: #C1C1C1, $alpha: 0.5);
+}
+.driverName{
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  text-transform: uppercase;
+
+   
+}
+.phoneIcon{
+  font-size: 20px;
+}
+.hoverActive{
+  background-color: #F5F5F5;
+  border-top-width: 1px 0px;
+  border-top-style: solid;
+  border-top-color: #C1C1C1;
+}
+.button-outline-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 45px;
+  height: 42px;
+  background: #FFFFFF;
+  font-family: Barlow, sans-serif;
+  border: 1px solid #0B2265;
+  border-radius: 100px;
+  color: #007AC9;
+  padding: 0 !important;
+  font-size: 30px;
+  }
+  .routeName{
+
+    font-family: 'Barlow';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #212121;
+  }
+  .notAssignetText{
+    font-family: 'Barlow';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    color: #212121;
+  }
+  .busStatus{
+    font-family: 'Barlow';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;  
+    color: #5F5F5F;
+    margin-left: auto;
+    margin-right: 8px;
+
+  }
+  .routeTime{
+    font-family: 'Barlow';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #212121;
+    margin-right: 8px;
+    margin-left: auto;
+  }
+  .zoomIn{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 9px 20px;
+    gap: 10px;
+    width: 127px;
+    height: 42px;
+    background: #FFFFFF;
+    border: 1px solid #0B2265;
+    border-radius: 25px;
+    color: #0B2265;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .diasabeldButton {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 9px 20px;
+    gap: 10px;
+    width: 127px;
+    height: 42px;
+    background: #FFFFFF;
+    border: 1px solid #c1c1c1;
+    border-radius: 25px;
+    color: #c1c1c1;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .notAssignedText{
+    font-family: 'Barlow';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #212121;
+  }

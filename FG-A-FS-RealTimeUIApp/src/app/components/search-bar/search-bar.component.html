@@ -1,0 +1,99 @@
+<div class="flex flex-col justify-between pt-8 px-8 text-black bg-white">
+  <div class="flex align-center w-full text-secondary-blue searchInputContainer">
+    <mat-form-field appearance="fill" class="flex justify-start items-center selectContainer">
+      <mat-select
+        id="searchTypeSelect"
+        value="Bus"
+        panelClass="dropPanel"
+        (selectionChange)="onSelectionChange($event)"
+        disableOptionCentering
+        hideSingleSelectionIndicator>
+        <mat-option value="Bus"> Bus </mat-option>
+        <mat-option value="Driver"> Driver </mat-option>
+        <mat-option value="Route"> Route </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="searchInputBox">
+      <input
+        id="searchInput"
+        class="searchInput"
+        placeholder="Search"
+        type="text"
+        [(ngModel)]="searchTerm"
+        (keydown.enter)="onSearchIconClick()" />
+      <mat-icon
+        *ngIf="searchTerm"
+        class="cursor-pointer text-light material-icons-outlined clearBtn"
+        (click)="clear()"
+        >close</mat-icon
+      >
+    </div>
+    <mat-icon matPrefix class="cursor-pointer searchMatIcon" (click)="onSearchIconClick()"
+      >search</mat-icon
+    >
+  </div>
+</div>
+<div class="flex flex-row justify-between" *ngIf="busData?.items || errorMsg.includes('found')">
+  <span class="px-8 py-[10px] text-sm text-light">
+    {{ results?.length }} Bus{{ results?.length === 1 ? "" : "es" }}</span
+  >
+  <!--  <span class="px-8 py-[10px] text-sm text-light" *ngIf="results.length > 0">-->
+  <!--    {{ results.length }} Driver{{ results.length === 1 ? "" : "s" }}</span-->
+  <!--  >-->
+  <!--  <span class="px-8 py-[10px] text-sm text-light" *ngIf="results.length > 0 && busData">-->
+  <!--    {{ results.length }} Route{{ results.length === 1 ? "" : "s" }}</span-->
+  <!--  >-->
+  <div class="flex px-8 pt-[10px] pb-[8px] text-sm justify-between items-center">
+    <span class="text-sm mr-1">Sort: </span>
+    <mat-form-field appearance="fill" class="flex justify-start items-center" id="sortDropdown">
+      <mat-select value="Name (A-Z)" (selectionChange)="onSortChange($event)" id="sortSelect">
+        <mat-option value="Name (A-Z)" class="text-secondary-blue matSortOption">
+          Name (A-Z)
+        </mat-option>
+        <mat-option value="Name (Z-A)" class="text-secondary-blue matSortOption">
+          Name (Z-A)
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+<div *ngIf="errorMsg">
+  <span
+    class="text-base text-light font-semibold"
+    [class.no-results]="errorMsg === 'No Results found'"
+    [class.too-short]="errorMsg === 'Enter at least 2 characters to search'">
+    {{ errorMsg }}</span
+  >
+  <div class="bottomShadow notFoundError"></div>
+</div>
+<div class="flex flex-col overflow-auto resultsContainer">
+  <div class="bottomShadow" *ngIf="busData?.items"></div>
+  <div class="flex flex-col" *ngIf="busData">
+    <app-bus-details [busData]="busData"></app-bus-details>
+  </div>
+  <div class="main-spinner" *ngIf="isLoading">
+    <div class="mt-8 mb-8 spinner-container">
+      <div class="spinner"></div>
+      <style>
+        @keyframes lds-ring {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+      </style>
+    </div>
+  </div>
+  <!--  <div *ngIf="searchType === 'Driver'">-->
+  <!--    <div class="flex flex-col" *ngFor="let driver of results">-->
+  <!--      <app-driver-details [driver]="driver"></app-driver-details>-->
+  <!--    </div>-->
+  <!--  </div>-->
+  <!--  <div *ngIf="searchType !== 'Driver' && searchType !== 'Bus'">-->
+  <!--    <div class="flex flex-col" *ngFor="let task of results">-->
+  <!--      <app-task-details [task]="task"></app-task-details>-->
+  <!--    </div>-->
+  <!--  </div>-->
+</div>

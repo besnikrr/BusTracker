@@ -1,0 +1,157 @@
+.busContainer{
+    border-bottom: 1px solid rgba($color: #C1C1C1, $alpha: 1);
+    border-top: 1px solid rgba($color: #C1C1C1, $alpha: 0.5);
+}
+.busName{
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    margin-bottom: 6px;
+}
+.btnContainer button{
+    width: 48%;
+}
+.hoverActive{
+    background-color: #F5F5F5;
+    border-top-width: 1px 0px;
+    border-top-style: solid;
+    border-top-color: #C1C1C1;
+}
+.iconsRow{
+    flex-direction: row;
+    align-items: center;
+    //gap: 16px;
+}
+.routeNumber {
+  font-size: 18px;
+  color: #212121;
+}
+
+@media (max-width: 1150px) {
+    .routeNumber{
+        flex-direction: column;
+    }
+    .iconsRow{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+  }
+  @media (max-width: 1050px) {
+    .btnContainer button{
+        padding: 5px;
+    }
+  }
+.button-outline-zoom {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 9px 20px;
+  gap: 10px;
+  width: 127px;
+  height: 42px;
+  background: #FFFFFF;
+  border: 1px solid #0B2265;
+  border-radius: 25px;
+  color: #0B2265;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: Barlow, sans-serif;
+}
+.bus-details-header {
+  padding: 0 0 20px 0;
+}
+.button-outline-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 45px;
+  height: 42px;
+  background: #FFFFFF;
+  font-family: Barlow, sans-serif;
+  border: 1px solid #0B2265;
+  border-radius: 100px;
+  color: #007AC9;
+  padding: 0 !important;
+  font-size: 30px;
+}
+.phone-icon {
+  font-size: 17px;
+}
+.phone-number {
+  font-size: 14px;
+}
+.iconsRow {
+  font-size: 14px;
+}
+.route-time {
+  font-size: 14px;
+}
+.bus-name{
+  font-size: 20px;
+}
+.bus-properties span {
+  font-size: 14px;
+}
+
+.call-icon {
+  font-size: 17px;
+  margin: 0 0 0 5px;
+  width: 18px;
+}
+.bus-not-assigned {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "Barlow Condensed", sans-serif !important;
+}
+.not-assigned-text {
+  margin-top: 5px;
+  font-size: 18px;
+  font-family: Barlow, sans-serif;
+}
+.disabled-zoom-button {
+  color: #c1c1c1;
+  border-color: #c1c1c1;
+  height: 42px;
+  width: 127px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: Barlow, sans-serif;
+  gap: 10px;
+  pointer-events: none !important;
+}
+
+.disabled-zoom-button path {
+  fill:#949494 !important;
+}
+
+.not-assigned-container {
+  height: 120px;
+}
+[disabled]{
+  pointer-events: none;
+}
+@media (max-width: 800px) {
+  .routes-details {
+      display: flex;
+      flex-direction: column;
+  }
+  .button-outline-details {
+    float:right;
+  }
+}
+@media (max-width: 600px) {
+  .bus-details-header {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+}
+.phone-number{
+  font-size: 14px;
+  font-family: Barlow, sans-serif;
+  color: #5f5f5f;
+}
